@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic Sorting Algorithms</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <nav class='navbar'></nav>
+  <main class='note'>
+    <header class='note__header'>
+      <h1 class='note__title'>Basic Sorting Algorithms</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.4</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Idea</h2>
+      <p>Data structures that are sorted can greatly improve the performance of other algorithms that wish to act on them. There are two basic sorting algorithms &mdash; <strong>selection</strong> sort and <strong>insertion</strong> sort.</p>
+      <h2 class='note__subtitle'>Selection Sort</h2>
+      <h3 class='section__subtitle'>Idea</h3>
+      <p>Selection sort sorts the array by recursively/iteratively finding the smallest item in the array and placing it at the front.</p>
+      <p>Consider the following array:</p>
+      <div class='array'>
+        <div class='array__item'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>Selection sort goes through the array and looks for the smallest number in the entire array &mdash; in this case, 7:</p>
+      <div class='array'>
+        <div class='array__item'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item array--highlight'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>Then places it at the <strong>start</strong> of the array:</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>7</div>
+        <div class='array__item'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>Essentially this splits the array into a <strong>sorted</strong> part and an <strong>unsorted</strong> part. From here, the sorted part will be highlighted blue.</p>
+      <p>The algorithm continues into the unsorted array, and repeats the entire process. In this case, the algorithm will find 11 and places it at the front of the array:</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>7</div>
+        <div class='array__item array--highlight'>11</div>
+        <div class='array__item'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>This continues until the entire array is sorted.</p>
+      <h3 class='section__subtitle'>Implementation</h3>
+      <p>There are two loops required for this implementation &mdash; the first loop will swap the smallest item into place, and the inner loop will look for the smallest item.</p>
+      <p>The following is a C++ implementation:</p>
+      <pre><code>void selectionSort(int arr[], int size) {
+  for (int i = 0; i < size - 1; i++) {
+    int smallest = i;
+    for (int j = i + 1; j < size; j++) {
+      if (arr[j] < arr[smallest]) {
+        smallest = j;
+      }
+    }
+    int temp = arr[i];
+    arr[i] = arr[smallest];
+    arr[smallest] = temp;
+  }
+}</code></pre>
+    </article>
+  </main>
+  <div class='progress'></div>
+</body>
+</html>

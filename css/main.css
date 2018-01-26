@@ -105,7 +105,8 @@ figure {
   justify-content: center;
   padding: 24px 48px;
   background: #3498DB;
-  border-radius: 8px; }
+  border-radius: 8px;
+  position: relative; }
 
 .nav {
   position: fixed; }
@@ -355,5 +356,61 @@ figure {
   align-items: center;
   color: #FFFFFF;
   margin-left: -3px; }
+
+.stack--container {
+  position: relative;
+  height: 150px;
+  width: 215px;
+  justify-self: center; }
+
+.stack {
+  width: 150px;
+  height: 150px;
+  border: 3px solid #3498DB;
+  position: absolute;
+  background: #FFFFFF;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateX(-50%);
+  left: 50%;
+  bottom: 0;
+  z-index: 0; }
+  .stack--1 {
+    z-index: 10;
+    bottom: 10px; }
+  .stack--2 {
+    z-index: 20;
+    bottom: 20px; }
+  .stack--3 {
+    z-index: 30;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Consolas", sans-serif;
+    color: #3498DB;
+    font-size: 56px; }
+
+.array {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; }
+
+.array__item {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #3498DB;
+  font-family: "Consolas", sans-serif;
+  font-weight: 700;
+  color: #3498DB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px; }
+  .array__item:last-child {
+    margin-right: 0; }
+
+.array--highlight {
+  background: #3498DB;
+  color: #FFFFFF; }
 
 /*# sourceMappingURL=main.css.map */

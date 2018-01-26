@@ -1,0 +1,36 @@
+.stack--container {
+  position: relative;
+  height: 150px;
+  width: 215px;
+  justify-self: center;
+}
+
+.stack {
+  width: 150px;
+  height: 150px;
+  border: 3px solid $main;
+  position: absolute;
+  background: $white;
+  transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateX(-50%);
+  left: 50%;
+  bottom: 0;
+  z-index: 0;
+  &--1 {
+    z-index: 10;
+    bottom: 10px;
+  }
+  &--2 {
+    z-index: 20;
+    bottom: 20px;
+  }
+  &--3 {
+    z-index: 30;
+    bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $font-mono;
+    color: $main;
+    font-size: 56px;
+  }
+}

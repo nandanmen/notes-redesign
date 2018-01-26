@@ -26,6 +26,28 @@
       <h3 class='section__subtitle'>Accessors</h3>
       <p>Also known as <em>getters</em>, it is able to retrieve data from the ADT and ask questions about the data collection (without manipulating the contents itself).</p>
       <h2 class='note__subtitle'>Example: Stack</h2>
+      <p>A stack ADT only allows items to be inserted and removed at <strong>one end</strong>. This is referred as the <strong>top</strong> of the stack.</p>
+      <p>Access to all other items in the stack is not allowed.</p>
+      <div class='stack--container'>
+        <div class='stack'></div>
+        <div class='stack stack--1'></div>
+        <div class='stack stack--2'></div>
+        <div class='stack stack--3'>TOP</div>
+      </div>
+      <h3 class='section__subtitle'>Stack Behaviour</h3>
+      <p>A stack ADT should support at least the first two of the following operations:</p>
+      <ul>
+        <li><strong>push</strong> &mdash; inserts an item at the top of the stack.</li>
+        <li><strong>pop</strong> &mdash; remove and return the top item.</li>
+        <li><strong>peek</strong> &mdash; returns the top item.</li>
+        <li><strong>isEmpty</strong> &mdash; returns whether the stack contains any items.</li>
+      </ul>
+      <h3 class='section__subtitle'>Stack Implementation</h3>
+      <p>Stacks can be implemented using a variety of data structures, such as arrays or linked lists. The implementation of a stack, however, requires that:</p>
+      <ul>
+        <li>There is a variable that keeps track of the top of the stack,</li>
+        <li>Insertion or deletion time is independent of number of items (runs in O(1)).</li>
+      </ul>
     </article>
   </main>
   <div class='progress'></div>
