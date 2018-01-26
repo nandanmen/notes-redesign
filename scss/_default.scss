@@ -1,0 +1,77 @@
+/*
+* This file overrides default browser styles for
+* (non-class) elements in this project.
+*/
+
+h1, h2, h3 {
+    font-family: $font-head;
+    line-height: 1em;
+    color: $black;
+}
+h1 {
+    font-size: 40px;
+    @include respond-to($breakpoint-sm) {
+        font-size: 64px;
+    }
+}
+h2 {
+    font-size: 24px;
+    @include respond-to($breakpoint-sm) {
+        font-size: 40px;
+    }
+}
+h3 {
+    font-family: $font-body;
+    font-size: 16px;
+    @include respond-to($breakpoint-sm) {
+        font-size: 24px;
+    }
+}
+
+p {
+    font-family: $font-body;
+    color: $black;
+    line-height: 1.7em;
+}
+
+table, td, th {
+    border-collapse: collapse;
+    text-align: center;
+}
+td, th {
+    padding: 8px;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+pre {
+    background: $black;
+    color: $white;
+    border-radius: 8px;
+    padding: 24px 48px;
+    overflow-x: scroll;
+}
+code {
+    font-family: $font-mono;
+    line-height: 1.4em;
+}
+
+ul {
+    margin-left: 40px;
+}
+
+button {
+    border: none;
+}
+
+figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 48px;
+    background: $main;
+    border-radius: 8px;
+}

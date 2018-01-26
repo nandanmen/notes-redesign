@@ -1,0 +1,11 @@
+.nav {
+    position: fixed;
+    @include respond-to($breakpoint-sm) {
+        left: 48px;
+    }
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+}

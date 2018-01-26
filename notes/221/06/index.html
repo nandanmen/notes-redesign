@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>221 Unit 06</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <nav class='navbar'></nav>
+  <main class='note'>
+    <header class='note__header'>
+      <h1 class='note__title'>Data Structure: Linked Lists</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.6</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Idea</h2>
+      <p>A linked list is a data structure that stores some form of data. It is essentially a series of <strong>nodes</strong>, each of which has a piece of <strong>data</strong> and a pointer to the <strong>next item</strong> in the list:</p>
+      <figure>
+        <div class='node'>
+          <div class='node__data'>7</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+        <div class='node'>
+          <div class='node__data'>8</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+        <div class='node'>
+          <div class='node__data'>9</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+      </figure>
+      <p>The first node is known as the <strong>head</strong>, and the last node is known as the <strong>tail</strong> (shown as red and green respectively):</p>
+      <figure>
+        <div class='node'>
+          <div class='node__data node--head'>7</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+        <div class='node'>
+          <div class='node__data'>8</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+        <div class='node'>
+          <div class='node__data node--tail'>9</div>
+          <div class='node__link'>&LongRightArrow;</div>
+        </div>
+      </figure>
+      <h2 class='note__subtitle'>Implementation</h2>
+      <p>A linked list is implemented using two classes &mdash; the <strong>Node</strong> class and the <strong>LinkedList</strong> class.</p>
+      <h3 class='section__subtitle'>Node Class</h3>
+      <p>The Node class contains the constructor for a node, and its variables:</p>
+      <ul>
+        <li><strong>data</strong> &mdash; the data kept in the node,</li>
+        <li><strong>next</strong> &mdash; a pointer to the next item in the list</li>
+      </ul>
+      <pre><code>class Node {
+  public:
+    int data;
+    Node* next;
+
+    Node(int d, Node* nd) {
+      data = d;
+      next = nd;
+    }
+}</code></pre>
+      <h3 class='section__subtitle'>LinkedList Class</h3>
+      <p>A standard implementation of the LinkedList class contains a pointer to the head of the list, and the length of the list.</p>
+      <pre><code>class LinkedList {
+  private:
+    Node* head;
+    int length;
+  
+  public:
+    LinkedList();
+}</code></pre>
+    </article>
+  </main>
+  <div class='progress'></div>
+</body>
+</html>

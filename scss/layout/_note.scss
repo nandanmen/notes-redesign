@@ -1,0 +1,76 @@
+.note {
+  padding-left: 40px;
+  padding-right: 40px;
+  min-height: 100vh;
+  @include respond-to($breakpoint-sm) {
+    display: grid;
+    grid-template-columns: 48px 1fr 8px 24px 480px 32px 1fr 48px;
+  }
+  @include respond-to($breakpoint-lg) {
+    grid-template-columns: 48px 80px 400px 80px 1fr;
+  }
+}
+
+.note__header {
+  grid-column: 3;
+  margin-top: 40px;
+  margin-bottom: 32px;
+  @include respond-to($breakpoint-sm) {
+    grid-column: 5;
+    margin-top: 88px;
+    margin-bottom: 80px;
+  }
+  @include respond-to($breakpoint-lg) {
+    position: fixed;
+    left: 10vw;
+    width: 500px;
+    margin: 0;
+    top: 26%;
+  }
+}
+
+.note__title {
+  @include respond-to($breakpoint-sm) {
+    margin-bottom: 56px;
+  }
+}
+
+.note__desc {
+  display: none;
+  @include respond-to($breakpoint-sm) {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.class__desc {
+  width: 176px;
+}
+
+.note__number {
+  margin-left: auto;
+}
+
+.content {
+  grid-column: 3;
+  width: 100%;
+  @include respond-to($breakpoint-sm) {
+    grid-column: 5;
+    margin-bottom: 26vh;
+  }
+  @include respond-to($breakpoint-lg) {
+    display: grid;
+    grid-template-columns: 1fr 600px 1fr;
+    margin-top: 26vh;
+    * {
+      grid-column: 2;
+    }
+  }
+
+}
+
+.progress {
+  position: fixed;
+  right: 0;
+  top: 0;
+}

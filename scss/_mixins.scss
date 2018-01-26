@@ -1,0 +1,14 @@
+/* Responsive breakpoint manager
+*
+* @param {Number} $breakpoint -> minimum width for media query
+* @requires $breakpoints-* from _settings.scss
+*/
+@mixin respond-to($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+      @content;
+    }
+}
+
+@mixin box-shadow {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}

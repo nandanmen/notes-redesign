@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>221 Unit 03</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <nav class='navbar'></nav>
+  <main class='note'>
+    <header class='note__header'>
+      <h1 class='note__title'>C++ Memory, Arrays, and the Call Stack</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.3</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Function Calling</h2>
+      <h3>Function Parameters</h3>
+      <p>C++ differentiates between <strong>actual</strong> parameters and <strong>formal</strong> parameters.</p>
+      <ul>
+        <li><strong>Actual</strong> parameter &mdash; the value or variable(s) that are specified by the function <em>caller</em>.</li>
+        <li><strong>Formal</strong> parameter &mdash; the variables found in the signature/header of the <em>function</em> itself.</li>
+      </ul>
+      <p>Formal parameters must match with actual parameters in order, number, and data type. To make it more clear, consider the following code snippet:</p>
+      <pre><code>int a = 5;
+int b = 7;
+int result = sum(a, b);</code></pre>
+      <p>Here, a and b are considered to be actual parameters. Below, x and y are considered to be formal parameters:</p>
+      <pre><code>int sum(int x, int y) {
+  return x + y;
+}</code></pre>
+      <p>Actual and formal parameters differ in memory, even if they are named the same. The value of the actual parameter is <em>copied</em> to the formal parameter when the function is called.</p>
+      <h2 class='note__subtitle'>C++ Arrays</h2>
+      <p>An array is a collection of elements of the same data type, stored in <strong>consecutive</strong> locations in memory. They are declared like regular variables but with [], which includes the size of the array:</p>
+      <pre><code>int age[100]</code></pre>
+    </article>
+  </main>
+  <div class='progress'></div>
+</body>
+</html>

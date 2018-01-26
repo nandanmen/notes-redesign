@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>221 Appendix 01</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <nav class='navbar'></nav>
+  <main class='note'>
+    <header class='note__header'>
+      <h1 class='note__title'>A Primer On C++ Pointers</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.A1</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Pointers</h2>
+      <p>Say we declared a normal variable. After its declaration, we can say that the variable is synonymous with its value:</p>
+      <pre><code>int a = 5
+cout << a << endl;
+// Outputs 5</code></pre>
+      <p>We can modify this value:</p>
+      <pre><code>a = a * 2;
+cout << a << endl;
+// Outputs 10</code></pre>
+      <p>The value of this variable lives in a memory address. The <code>&</code> operator can be used to access it:</p>
+      <pre><code>cout << &a << endl;</code></pre>
+      <h3 class='section__subtitle'>What is a pointer?</h3>
+      <p>A pointer is a variable that holds the <em>address</em> of <em>another</em> variable. It is declared using the * operator before an identifier:</p>
+      <pre><code>int* aPointer;
+cout << aPointer << endl;
+// Outputs 0x0, as the pointer currently points nowhere</code></pre>
+      <p>We can set the address the pointer points to using the & operator:</p>
+      <pre><code>int* aPointer = &a;
+cout << aPointer << endl;
+// Outputs the address of a</code></pre>
+      <p>Another way we can declare a pointer is using the <code>new</code> operator:</p>
+      <pre><code>int* newPointer = new int(3);</code></pre>
+      <h3 class='section__subtitle'>Modifying pointer values</h3>
+      <p>We can modify the value the pointer points to using the dereference operator:</p>
+      <pre><code>*aPointer = 2;
+// a = 2 now</code></pre>
+      <p>This code is essentially saying "change the value at the address held by aPointer to 2". So essentially the same as a = 2.</p>
+      <h3 class='section__subtitle'>Why use pointers?</h3>
+      <p>In C++, when variables are passed into a function, a <em>copy</em> of the variable is passed. The original variable is untouched.</p>
+      <pre><code>void setValueToFive(int x) {
+  x = 5;
+}
+
+int x = 3;
+setValueToFive(x);
+
+cout << x << endl;
+// Outputs 3, x was unchanged</code></pre>
+      <p>The function can be modified to accept a pointer instead of the actual variable. This results in the actual value being changed:</p>
+      <pre><code>void setValueToFive(int* x) {
+  *x = 5;
+}
+
+int x = 3;
+setValueToFive(x);
+
+cout << x << endl;
+// Outputs 5, x was changed</code></pre>
+      <h3 class='section__subtitle'>Using references</h3>
+      <p>Another way to change our function is to instead use a <strong>reference</strong> to our variable like so:</p>
+      <pre><code>void setValueToFive(int& x) {
+  x = 5;
+}
+        
+int x = 3;
+setValueToFive(x);
+        
+cout << x << endl;
+// Outputs 5, x was changed</code></pre>
+      <p>A reference is essentially adding another <em>name</em> to our variable. Changing this other name changes the original variable and vice versa:</p>
+      <pre><code>int a = 4;
+int& b = a;
+
+b = 5;
+cout << a << endl; // outputs 5</code></pre>
+    </article>
+  </main>
+  <div class='progress'></div>
+</body>
+</html>

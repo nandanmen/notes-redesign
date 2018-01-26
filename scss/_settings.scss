@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+/* --- Colors --- */
+
+$black: #494949;
+$grey: #C1C1C1;
+$white: #FFFFFF;
+
+$blue: #3498DB;
+
+$main: $blue;
+
+/* --- Fonts --- */
+
+$font-head: 'Montserrat', sans-serif;
+$font-body: 'Open Sans', sans-serif;
+$font-mono: 'Consolas', sans-serif;
+
+$font-size-base: 16px;
+
+/* --- Breakpoints --- */
+
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1800px;
+
+/* --- Bezier Curves --- */
+
+$cubic-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+/* --- Miscellanious --- */
+
+/*
+* This is the smallest unit for component layout. Keep all margins, paddings,
+* font sizes, etc. as a multiple of this value.
+*/
+$shift-value: 8px;
