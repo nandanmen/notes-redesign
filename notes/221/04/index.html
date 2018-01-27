@@ -85,6 +85,88 @@
     arr[smallest] = temp;
   }
 }</code></pre>
+      <p>Let's take the earlier example array and pass it into this function.</p>
+      <h4>i = 0</h4>
+      <ul>
+        <li>Smallest = 0</li>
+        <li>The inner for loop finds 7, places this index to smallest. So smallest = 4</li>
+        <li>7 is placed at the front of the list, and the previous front of the list is placed at the location of 7.</li>
+      </ul>
+      <p>After the first iteration, the array now looks like this:</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>7</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>23</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <h3 class='section__subtitle'>Performance</h3>
+      <p>The outer loop will run n times. The inner loop makes n - i comparisons per iteration. This means that in total the inner loop runs n(n-1) / 2 times.</p>
+      <p>Selection sort will perform the same number of comparisons regardless of the original organization of the array (it doesn't matter if the given array was sorted or not).</p>
+      <p>Since the inner loop runs n(n-1)/2 times, then selection sort can be said to be in <strong>O(n<sup>2</sup>)</strong>.</p>
+      <h2 class='note__subtitle'>Insertion Sort</h2>
+      <h3 class='section__subtitle'>Idea</h3>
+      <p>Insertion sort works differently than selection sort. It sorts the array by taking the first <em>unsorted</em> item, and placing it in its correct place in the <em>sorted</em> section.</p>
+      <p>Take the array from before:</p>
+      <div class='array'>
+        <div class='array__item'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>The first item in the array is considered to be sorted, so 23 is highlighted in blue below.</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>23</div>
+        <div class='array__item'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>The algorithm takes 41, the first unsorted item, and compares it to 23. Since it is larger than 23, it is placed after 23 (so essentially there is no swap):</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>23</div>
+        <div class='array__item array--highlight'>41</div>
+        <div class='array__item'>33</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <p>This process repeats. It takes 33, and compares it to 23. 33 > 23, so it compares it to 41. 33 < 41, so it swaps the positions of 33 and 41:</p>
+      <div class='array'>
+        <div class='array__item array--highlight'>23</div>
+        <div class='array__item array--highlight'>33</div>
+        <div class='array__item array--highlight'>41</div>
+        <div class='array__item'>81</div>
+        <div class='array__item'>7</div>
+        <div class='array__item'>19</div>
+        <div class='array__item'>11</div>
+        <div class='array__item'>45</div>
+      </div>
+      <h3 class='section__subtitle'>Implementation</h3>
+      <p>To implement insertion sort, we have to consider the steps that need to be taken. In each iteration it <em>takes</em> the first unsorted item. So we should assign this to a temporary variable:</p>
+      <pre><code>for (int i = 1; i < size; i++) {
+  int temp = arr[i];
+}</code></pre>
+      <p>Then we should recursively swap this item with its left item, as long as it is larger than its previous. We can do this by shuffling the other items in the list. We would also want to keep track of our current position.</p>
+      <pre><code>int pos = i;
+while(pos > 0 && arr[pos - 1] > temp) {
+  arr[pos] = arr[pos - 1];
+  pos--
+}</code></pre>
+      <p>Finally we want to place our 33. We now know that it is the correct place because of our previous block of code.</p>
+      <pre><code>arr[pos] = temp;</code></pre>
     </article>
   </main>
   <div class='progress'></div>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mathematical Induction and Other Proofs</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <nav class='navbar'></nav>
+  <main class='note'>
+    <header class='note__header'>
+      <h1 class='note__title'>Mathematical Induction and Other Proofs</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.2</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Proving Big&ndash; Theorems</h2>
+      <p>Generally proving big&ndash; theorems require you to simply use their respective definitions. This requires choosing values of n0 and c to satisfy the inequality. Sometimes these values are not so obvious, so there are several tricks to employ to find them.</p>
+      <h3 class='section__subtitle'>Proving Big-Oh</h3>
+      <p>For proving functions that are polynomials, simply pick n0 as 1 and c as the sum of the coefficients.</p>
+      <p>For example, say we want to prove the following theorem:</p>
+      <div class='math'>n<sup>3</sup> + 20n + 1 &isin; O(n<sup>3</sup>)</div>
+      <p>Let n0 = 1, and c = 1 + 20 + 1 = 22. Now we can see that the inequality is satisfied:</p>
+      <div class='math'>n<sup>3</sup> + 20n + 1 &#8924; n<sup>3</sup> + 20n<sup>3</sup> + n<sup>3</sup> = 22n<sup>3</sup></div>
+      <p>We know this is satisfied because for n > 1, then:</p>
+      <div class='math'>n<sup>3</sup> > n&sup2; > n > 1</div>
+    </article>
+  </main>
+  <div class='progress'></div>
+</body>
+</html>
