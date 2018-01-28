@@ -1,0 +1,90 @@
+.linked-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-mono;
+  font-weight: 700;
+  margin: 20px 0 40px 0;
+}
+
+.node {
+  width: 48px;
+  height: 48px;
+  border: 3px solid $main;
+  display: flex;
+  color: $blue;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-right: 30px;
+  &:after {
+    content: '⟶';
+    height: 100%;
+    width: 12px;
+    border: inherit;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 30px;
+    left: 41px;
+    top: -3px;
+  }
+  &--head {
+    &:before {
+      content: 'head';
+      position: absolute;
+      bottom: -32px;
+    }
+  }
+  &--tail {
+    &:before {
+      content: 'tail';
+      position: absolute;
+      bottom: -32px;
+    }
+  }
+  &--lone {
+    &:after {
+      content: '';
+      height: 100%;
+      width: 12px;
+      border: inherit;
+      border-left: none;
+      display: flex;
+      align-items: center;
+      position: absolute;
+      font-size: 30px;
+      left: 41px;
+      top: -3px;
+    }
+  }
+  &--doubly {
+    &:after {
+      content: '⇄';
+      height: 75%;
+      width: 12px;
+      border: inherit;
+      border-left: none;
+      padding-top: 25%;
+      position: absolute;
+      font-size: 38px;
+      left: 41px;
+      top: -3px;
+    }
+  }
+  &--doubly--tail {
+    &:after {
+      content: '';
+      height: 75%;
+      width: 12px;
+      border: inherit;
+      border-left: none;
+      padding-top: 25%;
+      position: absolute;
+      font-size: 38px;
+      left: 41px;
+      top: -3px;
+    }
+  }
+}

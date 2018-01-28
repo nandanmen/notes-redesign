@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>221 Unit 06</title>
+  <title>Linked Lists</title>
   <link href="../../../css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
@@ -20,35 +20,18 @@
     <article class='content'>
       <h2 class='note__subtitle'>Idea</h2>
       <p>A linked list is a data structure that stores some form of data. It is essentially a series of <strong>nodes</strong>, each of which has a piece of <strong>data</strong> and a pointer to the <strong>next item</strong> in the list:</p>
-      <figure>
-        <div class='node'>
-          <div class='node__data'>7</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-        <div class='node'>
-          <div class='node__data'>8</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-        <div class='node'>
-          <div class='node__data'>9</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-      </figure>
-      <p>The first node is known as the <strong>head</strong>, and the last node is known as the <strong>tail</strong> (shown as red and green respectively):</p>
-      <figure>
-        <div class='node'>
-          <div class='node__data node--head'>7</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-        <div class='node'>
-          <div class='node__data'>8</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-        <div class='node'>
-          <div class='node__data node--tail'>9</div>
-          <div class='node__link'>&LongRightArrow;</div>
-        </div>
-      </figure>
+      <div class='linked-list'>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node'>9</div>
+      </div>
+      <p>The first node is known as the <strong>head</strong>, and the last node is known as the <strong>tail</strong>:</p>
+      <div class='linked-list'>
+        <div class='node node--head'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>Unlike arrays, a linked list is stored <strong>dynamically</strong> and is not stored in a continuous block of memory.</p>
       <h2 class='note__subtitle'>Implementation</h2>
       <p>A linked list is implemented using two classes &mdash; the <strong>Node</strong> class and the <strong>LinkedList</strong> class.</p>
       <h3 class='section__subtitle'>Node Class</h3>
@@ -77,6 +60,116 @@
   public:
     LinkedList();
 }</code></pre>
+      <h2 class='note__subtitle'>Operations</h2>
+      <h3 class='section__subtitle'>Front Insertion</h3>
+      <p>For a standard implementation of a linked list, <strong>insertion at the front</strong> of the list is simple &mdash; construct a new node, set that node to point to the head, and change the head pointer:</p>
+      <p>Since no form of iteration is required, this process takes <strong>O(1)</strong> time.</p>
+      <div class='linked-list'>
+        <div class='node node--lone'>6</div>
+        <div class='node node--head'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <div class='linked-list'>
+        <div class='node'>6</div>
+        <div class='node node--head'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <h3 class='section__subtitle'>Middle/End Insertion</h3>
+      <p>Insertion anywhere else in the list requires recursion. We also have to make sure that the node pointers are updated correctly.</p>
+      <p>Say we want to insert 5 between 7 and 8:</p>
+      <div class='linked-list'>
+        <div class='node node--lone'>5</div>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>We first have to <em>get</em> to 7, and since there is no direct pointer to it, we have to iterate through the list.</p>
+      <p>Then we update 7's next pointer so that it points to 5:</p>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node node--lone'>5</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>Then update 5's pointer so it points to 7's previous next, 8:</p>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>5</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>In the worst case (inserting at the back of the list) you would have to iterate through the <strong>entire</strong> list. Therefore insertion anywhere not at front would take <strong>O(n)</strong> time.</p>
+      <h3 class='section__subtitle'>Removal</h3>
+      <p>Running times for removal operations are similar to insertion (i.e. depends on whether you remove from the front or not).</p>
+      <p>Say we want to delete 5 from the following list:</p>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>5</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>We first <strong>iterate</strong> through the list to find 5, keeping track of the previous node we went through.</p>
+      <p>Then update the pointer for the node <strong>before</strong> 5 to point to the node <strong>after</strong> 5:</p>
+      <div class='linked-list'>
+        <div class='node node--lone'>5</div>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <p>Then we have to make sure to <strong>delete</strong> 5 to avoid any memory leaks:</p>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <h2 class='note__subtitle'>Variations</h2>
+      <h3 class='section__subtitle'>Tail Pointer</h3>
+      <p>Adding a tail pointer vastly improves performance for all operations done on the tail, as it removes the need for recursion.</p>
+      <p>For example, <strong>inserting</strong> a node to the tail is as follows:</p>
+      <div class='linked-list'>
+        <div class='node node--lone'>5</div>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+      </div>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node node--tail'>9</div>
+        <div class='node'>5</div>
+      </div>
+      <div class='linked-list'>
+        <div class='node node--head'>6</div>
+        <div class='node'>7</div>
+        <div class='node'>8</div>
+        <div class='node'>9</div>
+        <div class='node node--tail'>5</div>
+      </div>
+      <h3 class='section__subtitle'>Doubly Linked List</h3>
+      <p>A doubly linked list is a variation of a linked list where each node has an additional pointer to the node that comes <strong>before</strong> it.</p>
+      <div class='linked-list'>
+        <div class='node node--doubly node--head'>6</div>
+        <div class='node node--doubly'>7</div>
+        <div class='node node--doubly'>8</div>
+        <div class='node node--doubly'>9</div>
+        <div class='node node--doubly node--doubly--tail node--tail'>5</div>
+      </div>
     </article>
   </main>
   <div class='progress'></div>

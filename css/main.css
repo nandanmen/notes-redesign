@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
 /* --- Colors --- */
@@ -331,31 +332,78 @@ figure {
       height: 100vh;
       width: 12px; } }
 
-.node {
-  border: 2px solid #FFFFFF;
-  display: flex;
-  font-family: "Consolas", sans-serif;
-  font-size: 24px;
-  margin-right: 16px; }
-  .node:last-child {
-    margin-right: 0; }
-
-.node__data {
-  border-right: 2px solid #FFFFFF;
-  color: #FFFFFF;
+.linked-list {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px; }
-
-.node__link {
+  font-family: "Consolas", sans-serif;
   font-weight: 700;
-  width: 13px;
+  margin: 20px 0 40px 0; }
+
+.node {
+  width: 48px;
+  height: 48px;
+  border: 3px solid #3498DB;
   display: flex;
+  color: #3498DB;
   align-items: center;
-  color: #FFFFFF;
-  margin-left: -3px; }
+  justify-content: center;
+  position: relative;
+  margin-right: 30px; }
+  .node:after {
+    content: '⟶';
+    height: 100%;
+    width: 12px;
+    border: inherit;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 30px;
+    left: 41px;
+    top: -3px; }
+  .node--head:before {
+    content: 'head';
+    position: absolute;
+    bottom: -32px; }
+  .node--tail:before {
+    content: 'tail';
+    position: absolute;
+    bottom: -32px; }
+  .node--lone:after {
+    content: '';
+    height: 100%;
+    width: 12px;
+    border: inherit;
+    border-left: none;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 30px;
+    left: 41px;
+    top: -3px; }
+  .node--doubly:after {
+    content: '⇄';
+    height: 75%;
+    width: 12px;
+    border: inherit;
+    border-left: none;
+    padding-top: 25%;
+    position: absolute;
+    font-size: 38px;
+    left: 41px;
+    top: -3px; }
+  .node--doubly--tail:after {
+    content: '';
+    height: 75%;
+    width: 12px;
+    border: inherit;
+    border-left: none;
+    padding-top: 25%;
+    position: absolute;
+    font-size: 38px;
+    left: 41px;
+    top: -3px; }
 
 .stack--container {
   position: relative;
@@ -366,7 +414,7 @@ figure {
 .stack {
   width: 150px;
   height: 150px;
-  border: 3px solid #3498DB;
+  border: 5px solid #3498DB;
   position: absolute;
   background: #FFFFFF;
   transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg) translateX(-50%);
