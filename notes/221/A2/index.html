@@ -18,8 +18,307 @@
       </div>
     </header>
     <article class='content'>
-      <h2 class='note__subtitle'>Idea</h2>
-      <p>A linked list is a data structure that stores some form of data. It is essentially a series of <strong>nodes</strong>, each of which has a piece of <strong>data</strong> and a pointer to the <strong>next item</strong> in the list:</p>
+      <h2 class='note__subtitle'>The Big Three</h2>
+      <p>When defining C++ classes, you need to define what is often referred as the <strong>big three</strong>:</p>
+      <ul>
+        <li>Constructor</li>
+        <li>Destructor</li>
+        <li>Copy constructor / Assignment operator</li>
+      </ul>
+      <p>For the rest of this article, let's say we want to implement a C++ class that describes an animal.</p>
+      <h2 class='note__subtitle'>Constructor</h2>
+      <p>The constructor instantiates a new object of the given type. For example, the constructor for our Animal class creates a new object of type Animal. It generally looks like this:</p>
+      <pre><code>Animal::Animal(String name) { 
+  this.name_ = name; 
+}</code></pre>
+      <p>In C++ there exists a <strong>default no-argument constructor</strong> that is used if no constructor is defined. However, if we <em>do</em> define a constructor, then we also have to define the no-argument constructor:</p>
+      <pre><code>Animal::Animal() {
+  this.name = "";
+}
+
+Animal::Animal(String name) {
+  this.name = name;
+}</code></pre>
+      <h3 class='section__subtitle'>When does the constructor get called?</h3>
+      <p>Sometimes it is not necessarily clear when the constructor gets called. Consider the following code:</p>
+      <pre><code>class Animal {
+  public:
+    Animal() {
+      std::cout << "Hi!" << std::endl;
+    }
+}
+
+int main() {
+  Animal a1;
+  Animal* a2;
+  Animal* a3 = new Animal();
+  return 0;
+}</code></pre>
+      <p>What gets printed in the console? The answer is this:</p>
+      <pre><code>Hi!
+Hi!</code></pre>
+      <p>The first "Hi!" comes from the first line of the main function:</p>
+      <pre><code>Animal a1;</code></pre>
+      <p>This calls the default no argument constructor, which we have defined to print Hi!. The second Hi! comes from the third line:</p>
+      <pre><code>Animal* a3 = new Animal();</code></pre>
+      <p>This is quite clear because we <strong>explicitly</strong> called the default constructor we have defined. Line 2:</p>
+      <pre><code>Animal* a2;</code></pre>
+      <p>Does not print anything because it only creates a <em>pointer</em> variable that <em>points</em> to an Animal, but an Animal object is not actually constructed.</p>
+      <h2 class='note__subtitle'>Destructors</h2>
+      <p>The main role of the desctructor is to make sure all memory that was allocated by the object is cleared.</p>
+      <p>Let's add to our animal class a list of food that our animal eats. We want this list to be dynamic. Therefore we would implement it like so:</p>
+      <pre><code>class Animal {
+  public:
+    Animal() {
+      this.food = new String[5];
+    }
+  
+  private:
+    String food;
+}</code></pre>
+      <p>On creation of our animal, our memory looks like this:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>A</div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block mem__block--alloc'>"A"</div>
+          <div class='mem__block mem__block--alloc'>"B"</div>
+          <div class='mem__block mem__block--alloc'>"C"</div>
+          <div class='mem__desc'>heap</div>
+        </div>
+      </div>
+      <p>Without an explicit destructor, the destruction of our animal will result in a memory leak:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block mem__block--alloc mem__block--leak'>"A"</div>
+          <div class='mem__block mem__block--alloc mem__block--leak'>"B"</div>
+          <div class='mem__block mem__block--alloc mem__block--leak'>"C"</div>
+          <div class='mem__desc'>heap</div>
+        </div>
+      </div>
+      <p>Thus the destructor is making sure that, upon destruction, there are <strong>no memory leaks</strong>.</p>
+      <p>Destructors are prefixed with a "~" before them:</p>
+      <pre><code>~Animal() { <strong>delete[]</strong> food; }</code></pre>
+      <h3 class='section__subtitle'>When does the destructor get called?</h3>
+      <p>The rule of thumb is that the destructor is called whenever the <strong>delete</strong> keyword is used or the end of the function call is reached.</p>
+      <p>Let's extend our example from earlier:</p>
+      <pre><code>class Animal {
+public:
+  Animal() {
+    std::cout << "Hi!" << std::endl;
+  }
+
+  ~Animal() {
+    std::cout << "Bye!" << std::endl;
+  }
+}
+        
+int main() {
+  Animal a1;
+  Animal* a2;
+  Animal* a3 = new Animal();
+  <strong>delete</strong> a3;
+  return 0;
+}</code></pre>
+      <p>The following is printed to the console:</p>
+      <pre><code>Hi!
+Hi!
+Bye!
+Bye!</code></pre>
+      <p>The first Bye! is called from delete. This is obvious as it is an explicit call to the destructor.</p>
+      <p>The <em>second</em> call to the destructor is automatically called because it reached the end of the function &mdash; all objects created within the scope of the function is destroyed.</p>
+      <h3 class='section__subtitle'>Visually</h3>
+      <p>After the construction of the two animal objects a1 and a3 (and the pointer a2), the call stack looks like this:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc'>a1</div>
+          <div class='mem__block mem__block--alloc'>a2</div>
+          <div class='mem__block mem__block--alloc'>a3</div>
+        </div>
+      </div>
+      <p>Our explicit call to delete will call the destructor that we have defined, printing "Bye!" and deleting a3 from the call stack:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc'>a1</div>
+          <div class='mem__block mem__block--alloc'>a2</div>
+          <div class='mem__block mem__block--alloc mem__block--leak'>a3</div>
+        </div>
+      </div>
+      <p>When we reach the end of the main function, the call stack is emptied. Thus the destructor is called again for our animal object a1:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--leak'>a1</div>
+          <div class='mem__block mem__block--alloc mem__block--leak'>a2</div>
+          <div class='mem__block'></div>
+        </div>
+      </div>
+      <p>Leaving our call stack empty:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+        </div>
+      </div>
+      <h2 class='note__subtitle'>Copy Constructor</h2>
+      <p>The role of the copy constructor is to ensure that a <strong>deep copy</strong> of our class is performed whenever a copy is needed.</p>
+      <h3 class='section__subtitle'>Deep vs. Shallow Copy</h3>
+      <p>Let's say we're trying to implement a linked list class. This class would have a <strong>pointer</strong> to the head node, and a length variable.</p>
+      <p>The pointer is the key word here that would differentiate between a deep copy and a shallow copy.</p>
+      <p>Let's say we want to do the following:</p>
+      <pre><code>LinkedList* a = new LinkedList();
+a.insertAtFront(1);
+LinkedList* b = new LinkedList(a);</code></pre>
+      <p><strong>Without a copy constructor</strong>, this is what happens:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer mem--double'>b</div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block mem__block--alloc'>1</div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__desc'>heap</div>
+        </div>
+      </div>
+      <p>This might not seem like a big problem until we try to modify b, such as removing the element:</p>
+      <pre><code>b.removeFront();</code></pre>
+      <p>Now b's head will point to NULL &mdash; but <em>so will a's</em>:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a</div>
+          <div class='mem__block mem__block--alloc'>b</div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__desc'>heap</div>
+        </div>
+      </div>
+      <p>We expect that modifying b should only alter b, and not a. This is called a <strong>soft copy</strong>, because all variables are <strong>copied by value</strong>, including pointers.</p>
+      <p>A <strong>deep copy</strong> is when the two values truly occupy separate places in memory.</p>
+      <h3 class='section__subtitle'>Copy Constructor Syntax</h3>
+      <p>Let's say we want to make a copy constructor for our animal class. The syntax would look like the following:</p>
+      <pre><code>Animal(const Animal& other) {
+  this.food_ = new String[other.food_.size];
+  for (int i = 0; i < other.food_.size; i++) {
+    this.food[i] = other.food[i];
+  }
+}</code></pre>
+      <p>This makes sure that the two variables occupy two different places in memory.</p>
+      <h3 class='section__subtitle'>Calling the copy constructor</h3>
+      <p>The copy constructor gets called whenever another object of the same class gets passed as the parameter to the constructor.</p>
+      <p>Extending our previous example:</p>
+      <pre><code>class Animal {
+public:
+  Animal() {
+    std::cout << "Hi!" << std::endl;
+  }
+
+  Animal(const Animal& other) {
+    std::cout << "Copied!" << std::endl;
+  }
+          
+  ~Animal() {
+    std::cout << "Bye!" << std::endl;
+  }
+}
+                  
+int main() {
+  Animal a1;
+  Animal* a2;
+  Animal* a3 = new Animal();
+  <strong>delete</strong> a3;
+  Animal* a4(a1);
+  return 0;
+}</code></pre>
+      <p>This will print out:</p>
+      <pre><code>Hi!
+Hi!
+Bye!
+Copied!
+Bye!
+Bye!</code></pre>
+      <p>The Copied! was printed out as the copy constructor was called by the line after delete a3, where we constructed a new Animal a4 by copying a1.</p>
+      <h2 class='note__subtitle'>Assignment Operator</h2>
+      <p>There are cases where the copy constructor will <strong>not</strong> be called, and instead the assignment operator is.</p>
+      <p>In the following piece of code, the assignment operator is called:</p>
+      <pre><code>Animal a1;
+Animal a2;
+a1 = new Animal("Woof");
+a2 = a1;</code></pre>
+      <p>The role of the assignment operator is to <strong>replace</strong> the data of a (previously initialized) object with the data of <strong>another object</strong>.</p>
+      <p>Like the copy constructor, it ensures a <strong>deep copy</strong> of the object is performed.</p>
+      <p>In memory, the entire code before a2 = a1 looks like this:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a1</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a2</div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block'>Woof</div>
+          <div class='mem__block'>null</div>
+          <div class='mem__block'></div>
+        </div>
+      </div>
+      <p>After a2 = a1, the Animal assignment operator is called and the value at a2 <strong>also</strong> equals Woof:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a1</div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>a2</div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block'>Woof</div>
+          <div class='mem__block'>Woof</div>
+          <div class='mem__block'></div>
+        </div>
+      </div>
+      <p>The syntax for overloading the assignment operator looks as follows:</p>
+      <pre><code>Animal& operator=(const Animal& other) {
+  if (this != other) {
+    destroy();
+    copy(other);
+  }
+  return *this;
+}</code></pre>
+      <p>Where destroy() deletes all instances of memory relating to the object and copy() copies the data of the other object into this object.</p>
+      <h3 class='section__subtitle'>Difference with Copy Constructor</h3>
+      <p>The main difference between the assignment operator and the copy constructor is that:</p>
+      <ul>
+        <li>The assignment operator changes an object that was <strong>previously initialized</strong>,</li>
+        <li>The copy constructor constructs a <strong>new object</strong> with the data of another.</li>
+      </ul>
+      <p>For example, the following will call the <em>copy constructor</em>:</p>
+      <pre><code>Animal* a1 = <strong>new</strong> Animal("Bark!");
+Animal* a2 = <strong>new</strong> Animal(a1);</code></pre>
+      <p>Whereas the following will call the <em>assignment operator</em>:</p>
+      <pre><code>Animal* a1 = <strong>new</strong> Animal("Bark!");
+Animal* a2 = <strong>new</strong> Animal("Moo!");
+a2 = a1;</code></pre>
     </article>
   </main>
   <div class='progress'></div>

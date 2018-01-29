@@ -294,13 +294,16 @@ blockquote {
     transform: scaleX(1); }
 
 .content {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.618;
   padding-bottom: 56px; }
   .content > * {
     margin-bottom: 20px; }
     .content > *:last-child {
       margin-bottom: 0; }
+  @media only screen and (min-width: 768px) {
+    .content {
+      font-size: 18px; } }
 
 .note__subtitle {
   position: relative;
@@ -523,15 +526,17 @@ blockquote {
   margin-right: 8px;
   border-radius: 8px;
   position: relative;
-  color: #FFFFFF;
+  color: #3498DB;
   font-family: "Source Code Pro", monospace;
-  font-size: 18px;
+  font-size: 16px;
   display: flex;
   justify-content: center;
   align-items: center; }
 
 .mem__block--alloc {
-  background: #3498DB; }
+  background: #3498DB;
+  font-size: 18px;
+  color: #FFFFFF; }
 
 .mem__block--leak {
   background: #FF3754; }
@@ -543,6 +548,16 @@ blockquote {
   left: 50%;
   font-size: 48px;
   transform: translateX(-50%);
+  bottom: -64px; }
+
+.mem--double:after {
+  content: '⇣';
+  color: #3498DB;
+  position: absolute;
+  left: 50%;
+  font-size: 48px;
+  transform-origin: top;
+  transform: translateX(-50%) translateY(5px) rotate(30deg);
   bottom: -64px; }
 
 .mem__desc {
