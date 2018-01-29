@@ -8,7 +8,6 @@
   <link href="../../../css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-  <nav class='navbar'></nav>
   <main class='note'>
     <header class='note__header'>
       <h1 class='note__title'>Mathematical Induction and Other Proofs</h1>
@@ -28,6 +27,32 @@
       <div class='math'>n<sup>3</sup> + 20n + 1 &#8924; n<sup>3</sup> + 20n<sup>3</sup> + n<sup>3</sup> = 22n<sup>3</sup></div>
       <p>We know this is satisfied because for n > 1, then:</p>
       <div class='math'>n<sup>3</sup> > n&sup2; > n > 1</div>
+      <h3 class='section__subtitle'>Using Limits</h3>
+      <p>Another way to approach Big&ndash; proofs is to solve for c then taking the limit to infinity.</p>
+      <p>For example, let's say we want to prove the following:</p>
+      <div class='math'>f(n) = 3<sup>log<sub>2</sub>n</sup> &isin; &#8486;(g(n) = 3(n+1))</div>
+      <p>Essentially we need to find a c and n0 such that:</p>
+      <div class='math'>For all n >= n0, 3<sup>log<sub>2</sub>n</sup> > 3c(n+1)</div>
+      <p>Note that we can rewrite f(n) in an easier form:</p>
+      <div class='math'>3<sup>log<sub>2</sub>n</sup> = n<sup>1/log<sub>3</sub>2</sup> > n for n > 1</div>
+      <p>Since we know this, we just need to compare n to g(n):</p>
+      <div class='math'>n >= 3c(n+1)</div>
+      <p>Now if we <strong>solve for c</strong>, then we find that:</p>
+      <div class='math'>n >= 3nc + 3c<br>
+      n - 3nc >= 3c<br>
+      n(1 - 3c) >= 3c<br>
+      n >= 3c / 1 - 3c</div>
+      <p>Now note that if we take the limit for n to infinity, then c will tend towards 1/3. Therefore the above inequality will only hold as long as c < 1/3.</p>
+      <p>Now that we have a range of c to choose from, we can just pick any arbitrary c that is in this range.</p>
+      <h3 class='section__subtitle'>Simple Example</h3>
+      <p>Using a simpler example we can see how useful the trick to use limits is. Let's say we want to prove the following by contradiction:</p>
+      <div class='math'>3n<sup>2</sup> + 2n &notin; O(n)</div>
+      <p>Let's assume the opposite is true. By the definition of Big O:</p>
+      <div class='math'>3n<sup>2</sup> + 2n <= cn</div>
+      <p>Now solving for c and taking the limit as n tends to infinity we find that:</p>
+      <div class='math'>lim<sub>n&rarr;&infin;</sub>(3n + 2) = &infin;</div>
+      <p>Therefore for any value c we can find a value 3n+2 larger than c. This is a contradiction, and therefore:</p>
+      <div class='math'>3n<sup>2</sup> + 2n &notin; O(n)</div>
     </article>
   </main>
   <div class='progress'></div>

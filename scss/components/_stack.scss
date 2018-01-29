@@ -5,6 +5,45 @@
   justify-self: center;
 }
 
+.stack--array {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.stack--array__item {
+  width: 48px;
+  height: 48px;
+  background: $main;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-family: $font-mono;
+  &:nth-last-child(2) {
+    margin-right: 0;
+  }
+}
+
+.stack--array__desc {
+  text-align: center;
+  margin-top: 16px;
+  font-family: $font-mono;
+  color: $main;
+  width: 100%;
+}
+
+.stack--empty {
+  background: $grey;
+}
+
+.stack--top {
+  background: $orange;
+}
+
 .stack {
   width: 150px;
   height: 150px;

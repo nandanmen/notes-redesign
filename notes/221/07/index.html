@@ -8,7 +8,6 @@
   <link href="../../../css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-  <nav class='navbar'></nav>
   <main class='note'>
     <header class='note__header'>
       <h1 class='note__title'>Abstract Data Types: Stacks</h1>
@@ -47,6 +46,38 @@
       <ul>
         <li>There is a variable that keeps track of the top of the stack,</li>
         <li>Insertion or deletion time is independent of number of items (runs in O(1)).</li>
+      </ul>
+      <p>Assume that we want our stack to store integers and we want these two methods:</p>
+      <ul>
+        <li>void push(int)</li>
+        <li>int pop</li>
+      </ul>
+      <h3 class='section__subtitle'>Implementation w/ Arrays</h3>
+      <p>Implementation using a dynamic array is simple and allows push and pop to be performed in constant time.</p>
+      <p>With an array, the index of top is equal to the current size - 1.</p>
+      <div class='stack--array'>
+        <div class='stack--array__item'>23</div>
+        <div class='stack--array__item'>41</div>
+        <div class='stack--array__item'>33</div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__desc'>index of top: 2</div>
+      </div>
+      <p>If we add another item to the stack, the index increases by 1:</p>
+      <div class='stack--array'>
+        <div class='stack--array__item'>23</div>
+        <div class='stack--array__item'>41</div>
+        <div class='stack--array__item'>33</div>
+        <div class='stack--array__item stack--top'>7</div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__desc'>index of top: 3</div>
+      </div>
+      <p>The problem with this arises when the array is <strong>full</strong>. In this case, there are two possibilities:</p>
+      <ul>
+        <li>No more items can be added to the array, or</li>
+        <li>A larger array has to be constructed and the items copied to this new array (which takes O(n) time).</li>
       </ul>
     </article>
   </main>

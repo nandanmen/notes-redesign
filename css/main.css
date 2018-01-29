@@ -38,7 +38,8 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
-  color: #494949; }
+  color: #494949;
+  background: #fefefe; }
 
 /*
 * This file overrides default browser styles for
@@ -445,6 +446,39 @@ blockquote {
   height: 150px;
   width: 215px;
   justify-self: center; }
+
+.stack--array {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; }
+
+.stack--array__item {
+  width: 48px;
+  height: 48px;
+  background: #3498DB;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  margin-right: 8px;
+  font-family: "Source Code Pro", monospace; }
+  .stack--array__item:nth-last-child(2) {
+    margin-right: 0; }
+
+.stack--array__desc {
+  text-align: center;
+  margin-top: 16px;
+  font-family: "Source Code Pro", monospace;
+  color: #3498DB;
+  width: 100%; }
+
+.stack--empty {
+  background: #f1f1f1; }
+
+.stack--top {
+  background: #FDCA1E; }
 
 .stack {
   width: 150px;
