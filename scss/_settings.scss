@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
 
 /* --- Colors --- */
 
@@ -8,14 +9,16 @@ $grey: rgb(241, 241, 241);
 $white: #FFFFFF;
 
 $blue: #3498DB;
+$red: #FF3754;
 
 $main: $blue;
+$warning: $red;
 
 /* --- Fonts --- */
 
 $font-head: 'Montserrat', sans-serif;
 $font-body: 'Open Sans', sans-serif;
-$font-mono: 'Consolas', sans-serif;
+$font-mono: 'Source Code Pro', monospace;
 
 $font-size-base: 16px;
 

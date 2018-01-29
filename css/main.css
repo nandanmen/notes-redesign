@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700");
 /* --- Colors --- */
 /* --- Fonts --- */
 /* --- Breakpoints --- */
@@ -91,10 +92,11 @@ pre {
   overflow-x: scroll; }
 
 code {
-  font-family: "Consolas", sans-serif;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.9em;
   line-height: 1.4em; }
 
-ul {
+ul, ol {
   margin-left: 40px; }
 
 button {
@@ -108,6 +110,14 @@ figure {
   background: #3498DB;
   border-radius: 8px;
   position: relative; }
+
+blockquote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 48px;
+  background: #f1f1f1;
+  border-radius: 8px; }
 
 .nav {
   position: fixed; }
@@ -175,7 +185,7 @@ figure {
   @media only screen and (min-width: 1280px) {
     .content {
       display: grid;
-      grid-template-columns: 1fr 600px 1fr;
+      grid-template-columns: 1fr 480px 1fr;
       margin-top: 26vh; }
       .content * {
         grid-column: 2; } }
@@ -267,6 +277,22 @@ figure {
     .navbar {
       display: block; } }
 
+.link {
+  color: #3498DB;
+  position: relative; }
+  .link:after {
+    content: '';
+    background: #3498DB;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: all 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transform: scaleX(0); }
+  .link:hover:after {
+    transform: scaleX(1); }
+
 .content {
   font-size: 18px;
   line-height: 1.618;
@@ -323,6 +349,12 @@ figure {
   font-size: 16px;
   font-weight: 700; }
 
+.quote__title {
+  margin-bottom: 8px;
+  border-bottom: 3px solid #494949;
+  padding-right: 32px;
+  font-weight: 700; }
+
 .progress {
   background: #3498DB;
   width: 100vw;
@@ -336,7 +368,7 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Consolas", sans-serif;
+  font-family: "Source Code Pro", monospace;
   font-weight: 700;
   margin: 20px 0 40px 0; }
 
@@ -433,7 +465,7 @@ figure {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Consolas", sans-serif;
+    font-family: "Source Code Pro", monospace;
     color: #3498DB;
     font-size: 56px; }
 
@@ -447,7 +479,7 @@ figure {
   width: 48px;
   height: 48px;
   border: 3px solid #3498DB;
-  font-family: "Consolas", sans-serif;
+  font-family: "Source Code Pro", monospace;
   font-weight: 700;
   color: #3498DB;
   display: flex;
@@ -466,6 +498,61 @@ figure {
   border-radius: 8px;
   padding: 24px 48px;
   text-align: center;
-  font-family: "Consolas", sans-serif; }
+  font-family: "Source Code Pro", monospace; }
+
+.memory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; }
+
+.mem {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px; }
+  .mem:first-child {
+    margin-top: 0; }
+
+.mem__block {
+  background: #f1f1f1;
+  width: 48px;
+  height: 48px;
+  margin-right: 8px;
+  border-radius: 8px;
+  position: relative;
+  color: #FFFFFF;
+  font-family: "Source Code Pro", monospace;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.mem__block--alloc {
+  background: #3498DB; }
+
+.mem__block--leak {
+  background: #FF3754; }
+
+.mem__block--pointer:after {
+  content: '⇣';
+  color: #3498DB;
+  position: absolute;
+  left: 50%;
+  font-size: 48px;
+  transform: translateX(-50%);
+  bottom: -64px; }
+
+.mem__desc {
+  width: 100%;
+  font-family: "Source Code Pro", monospace;
+  color: #3498DB;
+  text-align: center;
+  margin-bottom: 8px; }
+  .mem__desc:last-child {
+    margin-bottom: 0;
+    margin-top: 8px; }
 
 /*# sourceMappingURL=main.css.map */

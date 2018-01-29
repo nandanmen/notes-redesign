@@ -66,6 +66,13 @@
   font-weight: 700;
 }
 
+.quote__title {
+  margin-bottom: 8px;
+  border-bottom: 3px solid $black;
+  padding-right: 32px;
+  font-weight: 700;
+}
+
 .progress {
   background: $blue;
   width: 100vw;

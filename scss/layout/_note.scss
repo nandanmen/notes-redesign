@@ -60,7 +60,7 @@
   }
   @include respond-to($breakpoint-lg) {
     display: grid;
-    grid-template-columns: 1fr 600px 1fr;
+    grid-template-columns: 1fr 480px 1fr;
     margin-top: 26vh;
     * {
       grid-column: 2;
