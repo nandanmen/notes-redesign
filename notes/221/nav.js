@@ -4,7 +4,8 @@ class Nav {
   }
 
   isActive(dest) {
-    const toCompare = window.location.href.substr(-3, 2);
+    const toCompare = window.location.href.substr(-13, 2);
+    console.log(toCompare);
     return toCompare === dest;
   }
 
