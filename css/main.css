@@ -152,7 +152,7 @@ blockquote {
   @media only screen and (min-width: 1280px) {
     .note__header {
       position: fixed;
-      left: 10vw;
+      left: 12vw;
       width: 500px;
       margin: 0;
       top: 26%;
@@ -199,7 +199,7 @@ blockquote {
   position: fixed;
   height: 100vh;
   left: 6.25%;
-  border-left: 1px solid #f1f1f1;
+  border-left: 1px solid #d4d4d4;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -221,7 +221,7 @@ blockquote {
   margin-left: 16px;
   padding: 4px 8px;
   height: 100%;
-  background: #fefefe;
+  background: rgba(254, 254, 254, 0.9);
   font-family: "Source Code Pro", monospace;
   transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
   transform: translateX(-16px);
@@ -235,7 +235,7 @@ blockquote {
   height: 24px;
   width: 24px;
   border-radius: 50%;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #d4d4d4;
   background: #fefefe;
   position: relative; }
   .nav__button:hover span {

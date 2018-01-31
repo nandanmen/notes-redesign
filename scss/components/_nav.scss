@@ -2,7 +2,7 @@
     position: fixed;
     height: 100vh;
     left: 6.25%;
-    border-left: 1px solid $grey;
+    border-left: 1px solid $dgrey;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +27,7 @@
     margin-left: 16px;
     padding: 4px 8px;
     height: 100%;
-    background: $vlgrey;
+    background: rgba(254, 254, 254, 0.9);
     font-family: $font-mono;
     transition: all 0.25s $cubic-out;
     transform: translateX(-16px);
@@ -43,7 +43,7 @@
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    border: 1px solid $grey;
+    border: 1px solid $dgrey;
     background: $vlgrey;
     position: relative;
     &:hover {

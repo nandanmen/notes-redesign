@@ -45,6 +45,36 @@
       </ul>
       <p>Neither solution is optimal because one is slow and the other uses up unnecessary memory space.</p>
       <h3 class='section__subtitle'>Solution: Circular Arrays</h3>
+      <p>Using a <em>circular</em> array will allow us to solve these problems. A circular array is when the end of the array "wraps around" to the start of the array.</p>
+      <p>A queue implemented with a circular array would have the following attributes:</p>
+      <ul>
+        <li><strong>front</strong> &mdash; the front of the queue</li>
+        <li><strong>arrLength</strong> &mdash; the size of the array</li>
+        <li><strong>arr</strong> &mdash; a pointer to the array itself</li>
+        <li><strong>num</strong> &mdash; the number of items in the queue</li>
+      </ul>
+      <p>With these attributes then the <strong>back</strong> of the queue is:</p>
+      <pre><code>(front + num) % arrlength</code></pre>
+      <p>After removal of an item from the queue, the front of the queue is then:</p>
+      <pre><code>(front + 1) % arrlength</code></pre>
+      <h3 class='section__subtitle'>Example</h3>
+      <p>Say we have constructed an empty array. It will look like the following in memory:</p>
+      <div class='memory'>
+        <div class='mem'>
+          <div class='mem__desc'>call stack</div>
+          <div class='mem__block mem__block--alloc'></div>
+          <div class='mem__block mem__block--alloc mem__block--pointer'>ptr</div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+        </div>
+        <div class='mem'>
+          <div class='mem__block'></div>
+          <div class='mem__block mem__block--alloc'></div>
+          <div class='mem__block'></div>
+          <div class='mem__block'></div>
+          <div class='mem__desc'>heap</div>
+        </div>
+      </div>
     </article>
   </main>
   <div class='progress'></div>
