@@ -107,10 +107,8 @@ figure {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 48px;
-  background: #3498DB;
-  border-radius: 8px;
-  position: relative; }
+  position: relative;
+  padding: 20px 0; }
 
 blockquote {
   display: flex;
@@ -157,7 +155,8 @@ blockquote {
       left: 10vw;
       width: 500px;
       margin: 0;
-      top: 26%; } }
+      top: 26%;
+      z-index: 0; } }
 
 @media only screen and (min-width: 768px) {
   .note__title {
@@ -197,86 +196,65 @@ blockquote {
   top: 0; }
 
 .nav {
-  width: 100vw;
+  position: fixed;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0s; }
-  @media only screen and (min-width: 768px) {
-    .nav {
-      width: 0;
-      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); } }
-
-.nav--active {
-  width: 336px; }
-
-.nav__content {
+  left: 6.25%;
+  border-left: 1px solid #f1f1f1;
   display: flex;
   flex-direction: column;
-  height: 60%;
-  width: 60%; }
-  .nav__content ul {
-    overflow-y: scroll; }
+  justify-content: center;
+  z-index: 10; }
+
+.nav__item {
+  display: flex;
+  align-items: center;
+  transform: translateX(-12px);
+  margin-bottom: 16px; }
+  .nav__item span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 .nav__link {
-  width: 100%;
-  display: flex;
-  align-items: baseline;
-  color: #f1f1f1;
-  margin-bottom: 16px;
-  position: relative; }
-  .nav__link:last-child {
-    margin-bottom: 0; }
-  .nav__link:hover {
-    color: #494949; }
-    .nav__link:hover:before {
-      content: '';
-      position: absolute;
-      left: -16px;
-      width: 4px;
-      height: 100%;
-      background: #3498DB; }
-
-.link__number {
-  font-family: 'Ubuntu Mono';
-  font-size: 20px;
-  font-weight: 700;
-  height: 20px;
-  color: inherit; }
-
-.link__text {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: inherit;
-  margin-left: 8px; }
-
-.nav__title {
-  font-size: 40px;
-  margin-bottom: 56px; }
-
-.nav__class {
+  margin-left: 16px;
+  padding: 4px 8px;
+  height: 100%;
+  background: #fefefe;
+  font-family: "Source Code Pro", monospace;
+  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: translateX(-16px);
+  opacity: 0;
   position: relative;
-  color: #3498DB; }
-  .nav__class:before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: 0;
-    height: 6px;
-    background: #494949;
-    width: 100%; }
+  pointer-events: none; }
+  .nav__link span {
+    opacity: 0; }
 
-.navbar {
-  height: 100vh;
-  width: 48px;
-  display: none;
-  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) 0s;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); }
-  @media only screen and (min-width: 768px) {
-    .navbar {
-      display: block; } }
+.nav__button {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 1px solid #f1f1f1;
+  background: #fefefe;
+  position: relative; }
+  .nav__button:hover span {
+    opacity: 1; }
+  .nav__button:hover + .nav__link {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all; }
+    .nav__button:hover + .nav__link span {
+      opacity: 1; }
+  .nav__button span {
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    background: #3498DB;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; }
 
 .link {
   color: #3498DB;
@@ -603,5 +581,47 @@ blockquote {
   .mem__desc:last-child {
     margin-bottom: 0;
     margin-top: 8px; }
+
+.queue {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.queue__item {
+  width: 48px;
+  height: 48px;
+  background: #3498DB;
+  border-radius: 8px;
+  margin-right: 8px; }
+
+.queue__last {
+  opacity: 0;
+  animation-name: move-left-in;
+  animation-delay: 0.5s;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards; }
+
+.queue__first {
+  animation-name: move-left-out;
+  animation-delay: 1s;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards; }
+
+@keyframes move-left-out {
+  from {
+    transform: translateX(0);
+    opacity: 1; }
+  to {
+    transform: translateX(-80px);
+    opacity: 0; } }
+@keyframes move-left-in {
+  from {
+    transform: translateX(80px);
+    opacity: 0; }
+  to {
+    transform: translateX(0);
+    opacity: 1; } }
 
 /*# sourceMappingURL=main.css.map */

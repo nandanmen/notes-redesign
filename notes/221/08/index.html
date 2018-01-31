@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Queues</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <main class='note'>
+    <nav class='nav nav--class'></nav>
+    <header class='note__header'>
+      <h1 class='note__title'>Abstract Data Types: Queues</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.8</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Idea</h2>
+      <p>Say we have a printer that students can collectively use. It would be fair for the <strong>first student</strong> to come to be the <strong>first to print</strong>. The system that allows us to do this is called a queue.</p>
+      <figure>
+        <div class='queue__item queue__first'></div>
+        <div class='queue'>
+          <div class='queue__item'></div>
+        </div>
+        <div class='queue__item queue__last'></div>
+      </figure>
+      <h2 class='note__subtitle'>Queue</h2>
+      <p>In a queue items are inserted at the back (end/tail) and removed from the front (head). Thus queues are said to be <strong>FIFO</strong> (first in, first out) data structures.</p>
+      <p>At the least, a queue should implement the first two of the following operations:</p>
+      <ul>
+        <li><strong>enqueue</strong> &mdash; inserts an item into the queue</li>
+        <li><strong>dequeue</strong> &mdash; removes an item from the queue</li>
+        <li><strong>peek</strong> &mdash; returns the first item in the queue without removing it</li>
+        <li><strong>isEmpty</strong> &mdash; check if the queue contains any items</li>
+      </ul>
+      <h3 class='section__subtitle'>Queue Implementation</h3>
+      <p>A queue can be implemented using an array by making the <strong>back</strong> be the size of the array, and the <strong>front</strong> originally be index 0.</p>
+      <p>However, when we try to remove items we will run into some issues. We need to either:</p>
+      <ul>
+        <li>Move all the remaining items down, or</li>
+        <li>Increment the index of the front</li>
+      </ul>
+      <p>Neither solution is optimal because one is slow and the other uses up unnecessary memory space.</p>
+      <h3 class='section__subtitle'>Solution: Circular Arrays</h3>
+    </article>
+  </main>
+  <div class='progress'></div>
+  <script src="08.js" type="text/javascript"></script>
+</body>
+</html>
