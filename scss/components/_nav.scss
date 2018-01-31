@@ -70,3 +70,9 @@
         opacity: 0;
     }
 }
+
+.nav__button--active {
+    span {
+        opacity: 1;
+    }
+}

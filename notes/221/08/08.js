@@ -3,6 +3,11 @@ class Nav {
     this.links = links;
   }
 
+  isActive(dest) {
+    const toCompare = window.location.href.substr(-3, 2);
+    return toCompare === dest;
+  }
+
   makeLink(title, dest) {
     const container = document.createElement("div");
     container.classList.add("nav__item");
@@ -12,6 +17,9 @@ class Nav {
     const span = document.createElement("span");
 
     btn.classList.add("nav__button");
+    if (this.isActive(dest)) {
+      btn.classList.add("nav__button--active");
+    }
     a1.href = "../" + dest;
     a1.appendChild(span);
     btn.appendChild(a1);

@@ -256,6 +256,9 @@ blockquote {
     transform: translate(-50%, -50%);
     opacity: 0; }
 
+.nav__button--active span {
+  opacity: 1; }
+
 .link {
   color: #3498DB;
   position: relative; }
