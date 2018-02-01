@@ -2,12 +2,14 @@
 @import "mixins";
 @import "reset";
 @import "default";
+@import "animations";
 
 @import "layout/nav";
 @import "layout/note";
 
 @import "components/nav";
 @import "components/links";
+@import "components/note-header";
 @import "components/note";
 @import "components/linked-list";
 @import "components/stack";

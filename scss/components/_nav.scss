@@ -7,6 +7,9 @@
     flex-direction: column;
     justify-content: center;
     z-index: 10;
+    transform-origin: top;
+    transform: scaleX(0);
+    animation: grow-vert 0.8s $cubic-in-out forwards;
 }
 
 .nav__item {
