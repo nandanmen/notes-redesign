@@ -1,11 +1,17 @@
+let isDev = true;
+
 class Nav {
   constructor(links) {
     this.links = links;
   }
 
   isActive(dest) {
-    const toCompare = window.location.href.substr(-13, 2);
-    console.log(toCompare);
+    let toCompare;
+    if (isDev) {
+      toCompare = window.location.href.substr(-13, 2);
+    } else {
+      toCompare = window.location.href.substr(-3, 2);
+    }
     return toCompare === dest;
   }
 
