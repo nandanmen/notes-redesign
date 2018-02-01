@@ -58,22 +58,47 @@
       <p>After removal of an item from the queue, the front of the queue is then:</p>
       <pre><code>(front + 1) % arrlength</code></pre>
       <h3 class='section__subtitle'>Example</h3>
-      <p>Say we have constructed an empty array. It will look like the following in memory:</p>
-      <div class='memory'>
-        <div class='mem'>
-          <div class='mem__desc'>call stack</div>
-          <div class='mem__block mem__block--alloc'></div>
-          <div class='mem__block mem__block--alloc mem__block--pointer'>ptr</div>
-          <div class='mem__block'></div>
-          <div class='mem__block'></div>
-        </div>
-        <div class='mem'>
-          <div class='mem__block'></div>
-          <div class='mem__block mem__block--alloc'></div>
-          <div class='mem__block'></div>
-          <div class='mem__block'></div>
-          <div class='mem__desc'>heap</div>
-        </div>
+      <p>Say we have constructed an empty queue. It will look like the following in memory:</p>
+      <div class='stack--array'>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__desc'>front: 0&nbsp;&nbsp; num: 0</div>
+      </div>
+      <p>Now let's add some items using enqueue():</p>
+      <div class='stack--array'>
+        <div class='stack--array__item queue__front'>6</div>
+        <div class='stack--array__item'>4</div>
+        <div class='stack--array__item'>7</div>
+        <div class='stack--array__item'>3</div>
+        <div class='stack--array__item queue__back'>8</div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__desc'>front: 0&nbsp;&nbsp; num: 5</div>
+      </div>
+      <p>The front of the array is highlighted red and the back is highlighted orange.</p>
+      <p>Now let's remove <em>two</em> items. This means that front has to be incremented by 2 and num reduced by 2:</p>
+      <div class='stack--array'>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item queue__front'>7</div>
+        <div class='stack--array__item'>3</div>
+        <div class='stack--array__item queue__back'>8</div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__desc'>front: 2&nbsp;&nbsp; num: 3</div>
+      </div>
+      <p>Now it <strong>looks</strong> like there is only one space left. However because it is a circular array, we can add more than that.</p>
+      <p>Let's add two more items. Due to its circular nature, the array will now look like this:</p>
+      <div class='stack--array'>
+        <div class='stack--array__item queue__back'>5</div>
+        <div class='stack--array__item stack--empty'></div>
+        <div class='stack--array__item queue__front'>7</div>
+        <div class='stack--array__item'>3</div>
+        <div class='stack--array__item'>8</div>
+        <div class='stack--array__item'>9</div>
+        <div class='stack--array__desc'>front: 2&nbsp;&nbsp; num: 5</div>
       </div>
     </article>
   </main>

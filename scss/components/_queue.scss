@@ -4,6 +4,14 @@
   align-items: center;
 }
 
+.queue__front {
+  background: $red;
+}
+
+.queue__back {
+  background: $orange;
+}
+
 .queue__item {
   width: 48px;
   height: 48px;
