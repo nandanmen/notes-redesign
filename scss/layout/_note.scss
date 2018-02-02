@@ -22,11 +22,10 @@
   }
   @include respond-to($breakpoint-lg) {
     position: fixed;
-    left: 12vw;
+    left: 13vw;
     width: 500px;
     margin: 0;
-    top: 26%;
-    z-index: 0;
+    top: 30vh;
   }
 }
 

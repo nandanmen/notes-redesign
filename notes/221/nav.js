@@ -1,4 +1,4 @@
-let isDev = false;
+let isDev = true;
 
 class Nav {
   constructor(links) {
