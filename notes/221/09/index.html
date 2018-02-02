@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Recursive Functions</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <main class='note'>
+    <nav class='nav nav--class'></nav>
+    <header class='note__header'>
+      <h1 class='note__title'>Recursive Functions</h1>
+      <div class='note__desc'>
+        <div class='class__desc'>Beginner Algorithms and Data Structures</div>
+        <div class='note__number'>221.9</div>
+      </div>
+    </header>
+    <article class='content'>
+      <h2 class='note__subtitle'>Fibonacci Series</h2>
+      <p>The nth number in the fibonacci series is:</p>
+      <ul>
+        <li>0 if n = 0, and 1 if n = 1</li>
+        <li>fib(n-1) + fib(n-2) for any n > 1</li>
+      </ul>
+      <p>Let's say we would like to write a function that would return the nth fibonacci number. We can simply follow the above formula!</p>
+      <pre><code>int fib(int n) {
+  if (n <= 1) {
+    return max(0, n);
+  } else {
+    return fib(n-1) + fib(n-2);
+  }
+}</code></pre>
+      <p>The above function calls <em>itself</em> within the function body. This style of function is called a <strong>recursive function</strong>.</p>
+      <h2 class='note__subtitle'>Recursive Functions</h2>
+      <p>Recursive functions work just like other functions. Each recursive call is placed onto the call stack, and gets removed once the function returns.</p>
+      <h3 class='section__subtitle'>Anatomy</h3>
+      <p>Recursive functions consist of two or more cases, and there must be at least one of the following:</p>
+      <ul>
+        <li>Base case</li>
+        <li>Recursive case</li>
+      </ul>
+      <p>The <strong>base case</strong> is the smallest problem where the answer is known (there is no recursive call). There may be more than one base case.</p>
+      <p>The <strong>recursive case</strong> is the same problem but with a smaller input.</p>
+      <h3 class='section__subtitle'>Stack Overflow</h3>
+      <p>Recall that each recursive call is placed onto the call stack, and will only get removed until the function returns. This means that with a large enough input it is likely that the call stack <strong>does not have</strong> enough memory to hold all the calls.</p>
+      <p>A <strong>stack overflow</strong> is when the call stack runs out of memory.</p>
+      <h2 class='note__subtitle'>Tail Recursion</h2>
+      <p>A function is said to be <strong>tail recursive</strong> if the recursive call is the absolute last thing the function needs to do before returning.</p>
+      <p>i.e. the function does not need to <strong>wait</strong> for the other recursive calls to finish.</p>
+      <p>With tail recursion, compilers can optimize this such that previously used stack space may be reused.</p>
+      <h3 class='section__subtitle'>Tail Recursive Factorial</h3>
+      <p>Consider the following function that calculates the factorial of a given int n:</p>
+      <pre><code>int factorial(int n) {
+  if (n <= 0)
+    return 1;
+  else
+    return (n * factorial(n - 1));
+}</code></pre>
+      <p></p>
+    </article>
+  </main>
+  <div class='progress'></div>
+  <script src="../nav.js" type="text/javascript"></script>
+</body>
+</html>
