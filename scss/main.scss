@@ -4,9 +4,10 @@
 @import "default";
 @import "animations";
 
-@import "layout/nav";
 @import "layout/note";
+@import "layout/class";
 
+@import "components/header";
 @import "components/nav";
 @import "components/buttons";
 @import "components/links";

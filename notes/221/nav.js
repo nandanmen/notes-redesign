@@ -97,7 +97,7 @@ function main() {
   ];
 
   const nav = new Nav(links);
-  const target = document.querySelector(".nav--class");
+  const target = document.querySelector(".nav--note");
   nav.render(target);
 }
 

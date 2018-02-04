@@ -1,0 +1,99 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.header--xs {
+  @include respond-to($breakpoint-sm) {
+    display: none;
+  }
+}
+
+.header--lg {
+  display: none;
+  @include respond-to($breakpoint-sm) {
+    display: flex;
+  }
+}
+
+.header__dept {
+  font-family: $font-head;
+  font-size: 32px;
+  letter-spacing: 20px;
+  transform: translateY(-16px);
+  opacity: 0;
+  animation: 0.5s $cubic-in-out 0.7s show-down forwards;
+}
+
+.header__desc {
+  font-family: $font-serif;
+  font-size: 24px;
+  font-style: italic;
+  width: 60%;
+  text-align: right;
+  margin-top: 56px;
+  margin-right: 16px;
+  @include respond-to($breakpoint-lg) {
+    width: 50%;
+    margin-top: 8px;
+  }
+  transform: translateY(16px);
+  opacity: 0;
+  animation: 0.5s $cubic-in-out 0.7s show-up forwards;
+}
+
+.header__title {
+  font-family: $font-head;
+  font-size: 64px;
+  position: relative;
+  animation: show 0.8s $cubic-in-out forwards;
+  &:before {
+    content: '';
+    position: absolute;
+    background: $black;
+    width: 80px;
+    height: 10px;
+    left: 3px;
+    bottom: -10px;
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: grow-horiz 0.5s $cubic-out 0.5s forwards;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    background: $main;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: 0.8s $cubic-in-out slide-right forwards;
+  }
+  @include respond-to($breakpoint-sm) {
+    font-size: 180px;
+    &:before {
+      transform-origin: right;
+      height: 24px;
+      left: auto;
+      right: 13px;
+      width: 110px;
+      bottom: -24px;
+    }
+  }
+  @include respond-to($breakpoint-md) {
+    font-size: 220px;
+  }
+  @include respond-to($breakpoint-lg) {
+    font-size: 280px;
+    &:before {
+      transform-origin: left;
+      left: 20px;
+      width: 136px;
+      bottom: -40px;
+    }
+  }
+}

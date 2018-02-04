@@ -1,0 +1,18 @@
+.class {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  @include respond-to($breakpoint-sm) {
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+  }
+}
+
+.header {
+  align-self: center;
+  justify-self: end;
+  @include respond-to($breakpoint-sm) {
+    margin-right: 56px;
+  }
+}

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700');
 
 /* --- Colors --- */
 
@@ -24,6 +25,7 @@ $warning: $red;
 
 $font-head: 'Montserrat', sans-serif;
 $font-body: 'Open Sans', sans-serif;
+$font-serif: 'Libre Baskerville', serif;
 $font-mono: 'Source Code Pro', monospace;
 
 $font-size-base: 16px;

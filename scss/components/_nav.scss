@@ -1,7 +1,12 @@
+.nav-container {
+    max-height: 80vh;
+    overflow-y: scroll;
+    list-style: none;
+    margin-left: 0;
+}
+
 .nav {
-    position: fixed;
     height: 100vh;
-    left: 6.25%;
     border-left: 1px solid $dgrey;
     display: flex;
     flex-direction: column;
@@ -28,19 +33,52 @@
     z-index: 30;
 }
 
+.nav__item--class {
+    cursor: pointer;
+    margin-bottom: 32px;
+    &:hover {
+        color: $main;
+        .nav__link--class {
+            &:after {
+                content: '';
+                position: absolute;
+                bottom: -8px;
+                left: 0;
+                background: $main;
+                width: 50%;
+                height: 4px;
+            }
+        }
+    }
+}
+
 .nav__link {
     margin-left: 16px;
     padding: 4px 8px;
     height: 100%;
     background: rgba(254, 254, 254, 0.9);
     font-family: $font-mono;
-    transition: all 0.35s $cubic-out;
+    transition: transform 0.35s $cubic-out;
     transform: translateX(-16px);
     opacity: 0;
     position: relative;
     pointer-events: none;
     span {
         opacity: 0;
+    }
+}
+
+.nav__link--class {
+    background: none;
+    margin-left: 5vw;
+    padding: 0;
+    width: 296px;
+    font-family: $font-head;
+    font-size: 20px;
+    opacity: 1;
+    transform: translateX(0);
+    @include respond-to($breakpoint-md) {
+        margin-left: 7.5vw;
     }
 }
 
