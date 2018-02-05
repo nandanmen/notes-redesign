@@ -1126,5 +1126,62 @@ blockquote {
   to {
     transform: translateX(0);
     opacity: 1; } }
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.tree__level {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative; }
+  .tree__level:last-child {
+    margin-bottom: 0; }
+  .tree__level:before {
+    content: '';
+    width: 74px;
+    height: 2px;
+    position: absolute;
+    background: #3498DB;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%); }
+  .tree__level:first-child:before {
+    background: transparent; }
+
+.tree__node {
+  width: 48px;
+  height: 48px;
+  border: 2px solid #3498DB;
+  border-radius: 50%;
+  margin-right: 24px;
+  position: relative; }
+  .tree__node:last-child {
+    margin-right: 0; }
+  .tree__node:before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498DB;
+    height: 16px;
+    width: 2px; }
+  .tree__node:after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #3498DB;
+    height: 16px;
+    width: 2px; }
+
+.tree__root:before {
+  background: transparent; }
+
+.tree__leaf:after {
+  background: transparent; }
 
 /*# sourceMappingURL=main.css.map */

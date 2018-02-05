@@ -18,10 +18,97 @@
       </div>
     </header>
     <article class='content'>
-      <h2 class='note__subtitle'>Trees</h2>
-      <p>Like linked lists, a tree is another referenced based structure that is constructed with nodes.</p>
+      <h2 class='note__subtitle'>Introduction</h2>
+      <p>Like linked lists, a tree is another referenced based structure that is constructed with nodes. Instead of <strong>head</strong>, the starting point of a tree is called the <strong>root</strong>.</p>
       <p>Unlike linked lists, a tree node may have pointers to <strong>one or more</strong> nodes.</p>
-      <p>The starting node of the tree is called the <strong>root</strong> of the tree.</p>
+      <blockquote>
+        <p>On the other hand, a node may not be pointed to by <strong>more than one</strong> node!</p>
+      </blockquote>
+      <h2 class='note__subtitle'>Tree Relationships</h2>
+      <p>Node v is said to be a <em>child</em> of u, and u the <em>parent</em> of v if:</p>
+      <ul>
+        <li>There is an <em>edge</em> between the nodes u and v, and</li>
+        <li>u is <strong>above</strong> v in the tree</li>
+      </ul>
+      <p>We can generalize this relationship. Consider the following tree:</p>
+      <div class='tree'>
+        <div class='tree__level'>
+          <div class='tree__node tree__root'></div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__node tree__leaf'></div>
+          <div class='tree__node tree__leaf'></div>
+        </div>
+      </div>
+      <p>We can say that:</p>
+      <ul>
+        <li>E and F are <em>descendants</em> of A</li>
+        <li>D and A are <em>ancestors</em> of G</li>
+        <li>B, C, and D are <em>siblings</em></li>
+      </ul>
+      <h2 class='note__subtitle'>Tree Terminology</h2>
+      <p>There are several more important terms to describe trees:</p>
+      <ul>
+        <li>A <em>leaf</em> is a node with no children</li>
+        <li>A <em>path</em> is some sequence of nodes</li>
+        <li>A <em>subtree</em> is any node in the tree along with its descendants</li>
+        <li>A <em>binary tree</em> is a tree with at most two children per node:<br>
+          <ul>
+            <li>The children are referred to as <em>left</em> and <em>right</em></li>
+          </ul>
+        </li>
+      </ul>
+      <h2 class='note__subtitle'>Measuring Trees</h2>
+      <p>The <em>height</em> of some node v is the length of the longest path from v to a leaf.</p>
+      <ul>
+        <li>The height of the <strong>tree</strong> is the height of the root node.</li>
+      </ul>
+      <p>The <em>depth</em> of some node v is the length of the path from v to the root.</p>
+      <h2 class='note__subtitle'>Binary Trees</h2>
+      <p>A binary tree is said to be <em>perfect</em> if:</p>
+      <ul>
+        <li>No node has only one child,</li>
+        <li>All the levels have the same depth</li>
+      </ul>
+      <p>We can say that a perfect binary tree with height h has:</p>
+      <div class='math'>2<sup>h+1</sup> - 1 nodes, of which 2<sup>h</sup> are leaves</div>
+      <p>The following binary tree is perfect:</p>
+      <div class='tree'>
+
+      </div>
+      <p>A perfect binary tree is also said to be <em>complete</em>. A binary tree is considered to be complete if:</p>
+      <ul>
+        <li>The leaves are on at most two different levels</li>
+        <li>The second to bottom level is completely filled</li>
+        <li>The leaves on the bottom level are as far left as possible</li>
+      </ul>
+      <p>The following binary tree is complete, but <strong>not perfect</strong>:</p>
+      <div class='tree'>
+        
+      </div>
+      <p>The following binary tree is <strong>not complete</strong> and <strong>not perfect</strong>:</p>
+      <div class='tree'>
+        
+      </div>
+      <h3 class='section__subtitle'>Balanced Binary Trees</h3>
+      <p>A binary tree is balanced if the leaves are <strong>all about the same distance</strong> from the root.</p>
+      <p>The exact specification varies, but generally we want the left and right subtrees to be approximately the same height.</p>
+      <p>The following is a <strong>balanced</strong> binary tree:</p>
+      <div class='tree'>
+
+      </div>
+      <p>The following is an <strong>imbalanced</strong> binary tree:</p>
+      <div class='tree'>
+
+      </div>
+      <h2 class='note__subtitle'>Binary Tree Traversal</h2>
+      <p>A traversal algorithm for a binary tree visits each node in the tree. These traversal algorithms are naturally recursive (because the structure itself is recursive!).</p>
+      <p>There are three traversal methods:</p>
+      <ol>
+        <li>inOrder</li>
+        <li>preOrder</li>
+        <li>postOrder</li>
+      </ol>
     </article>
   </main>
   <script src="../nav.js" type="text/javascript"></script>
