@@ -1,4 +1,4 @@
-class Course {
+class CourseNav {
   constructor(units) {
     this.units = units;
   }
@@ -72,7 +72,7 @@ function main() {
     }
   ];
 
-  const nav = new Course(links);
+  const nav = new CourseNav(links);
   const target = document.querySelector(".nav-container");
   nav.render(target);
 }

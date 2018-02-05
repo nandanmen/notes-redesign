@@ -6,32 +6,9 @@
 }
 
 .btn {
-  cursor: pointer;
-  pointer-events: all;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: 3px solid $black;
-  font-family: $font-head;
-  font-weight: 700;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 24px;
-  opacity: 0;
-  transform: translateY(16px);
-  &:first-child {
-    margin-left: 0;
-  }
-  animation: show-up 0.5s $cubic-in-out 0.6s forwards;
-  &:hover {
-    background: $main;
-    border: 0;
-    color: $white;
-  }
-}
-
-.btn--class {
-  animation-delay: 0.8s;
+  padding: 8px 24px;
+  border-radius: 16px;
+  font-size: 24px;
+  background: $white;
+  color: $black;
 }

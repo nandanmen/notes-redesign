@@ -66,6 +66,9 @@ ul, ol {
 
 button {
     border: none;
+    &:focus {
+        outline: 0;
+    }
 }
 
 figure {

@@ -1,0 +1,23 @@
+.landing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background: #fafafa;
+}
+
+.btn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.btn--next {
+  top: 6vh;
+}
+
+.btn--prev {
+  bottom: 6vh;
+}
