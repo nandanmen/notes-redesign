@@ -1,3 +1,5 @@
+// ADD PROPER RESPONSIVENESS
+
 .card {
   display: flex;
   align-items: center;
@@ -31,6 +33,10 @@
   @include respond-to($breakpoint-sm) {
     height: 64vh;
     width: 70vw;
+  }
+  @include respond-to($breakpoint-lg) {
+    width: 38vw;
+    height: 72vh;
   }
 }
 
@@ -73,10 +79,13 @@
   @include respond-to($breakpoint-md) {
     font-size: 48px;
   }
+  @include respond-to($breakpoint-lg) {
+    font-size: 32px;
+  }
 }
 
 .card__course {
-  font-size: 192px;
+  font-size: 51vw;
   position: relative;
   color: inherit;
   animation: show 0.8s $cubic-in-out forwards;
@@ -119,6 +128,13 @@
       bottom: -46px;
     }
   }
+  @include respond-to($breakpoint-lg) {
+    font-size: 280px;
+    &:before {
+      height: 26px;
+      bottom: -34px;
+    }
+  }
 }
 
 .card__desc {
@@ -137,5 +153,9 @@
   @include respond-to($breakpoint-md) {
     font-size: 34px;
     width: 35vw;
+  }
+  @include respond-to($breakpoint-lg) {
+    font-size: 24px;
+    width: 20vw;
   }
 }

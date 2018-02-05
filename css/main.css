@@ -331,6 +331,10 @@ blockquote {
     .card {
       height: 64vh;
       width: 70vw; } }
+  @media only screen and (min-width: 1280px) {
+    .card {
+      width: 38vw;
+      height: 72vh; } }
 
 .card__bkg {
   width: 85%;
@@ -369,9 +373,12 @@ blockquote {
   @media only screen and (min-width: 1024px) {
     .card__dept {
       font-size: 48px; } }
+  @media only screen and (min-width: 1280px) {
+    .card__dept {
+      font-size: 32px; } }
 
 .card__course {
-  font-size: 192px;
+  font-size: 51vw;
   position: relative;
   color: inherit;
   animation: show 0.8s cubic-bezier(0.85, 0.01, 0.36, 1) forwards; }
@@ -410,6 +417,12 @@ blockquote {
       .card__course:before {
         height: 38px;
         bottom: -46px; } }
+  @media only screen and (min-width: 1280px) {
+    .card__course {
+      font-size: 280px; }
+      .card__course:before {
+        height: 26px;
+        bottom: -34px; } }
 
 .card__desc {
   font-family: "Libre Baskerville", serif;
@@ -428,6 +441,10 @@ blockquote {
     .card__desc {
       font-size: 34px;
       width: 35vw; } }
+  @media only screen and (min-width: 1280px) {
+    .card__desc {
+      font-size: 24px;
+      width: 20vw; } }
 
 @media only screen and (min-width: 768px) {
   .header--xs {
