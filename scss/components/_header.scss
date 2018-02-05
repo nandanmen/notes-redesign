@@ -1,10 +1,3 @@
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-}
-
 .header--xs {
   @include respond-to($breakpoint-sm) {
     display: none;
@@ -15,6 +8,9 @@
   display: none;
   @include respond-to($breakpoint-sm) {
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
   }
 }
 
@@ -46,7 +42,7 @@
 
 .header__title {
   font-family: $font-head;
-  font-size: 64px;
+  font-size: 80px;
   position: relative;
   animation: show 0.8s $cubic-in-out forwards;
   &:before {
@@ -74,6 +70,7 @@
     animation: 0.8s $cubic-in-out slide-right forwards;
   }
   @include respond-to($breakpoint-sm) {
+    position: relative;
     font-size: 180px;
     &:before {
       transform-origin: right;

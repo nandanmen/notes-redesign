@@ -18,3 +18,50 @@
     }
   }
 }
+
+.link--nav {
+  font-family: $font-mono;
+  font-size: 16px;
+  color: $dgrey;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 1px solid $dgrey;
+    background: $vlgrey;
+    border-radius: 50%;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background: $main;
+    width: 40px;
+    height: 4px;
+    transform-origin: left;
+    transition: transform 0.3s $cubic-out;
+    transform: scaleX(0);
+  }
+  &:hover {
+    color: $main;
+    &:before {
+      background: $main;
+      border: 0;
+    }
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+  @include respond-to($breakpoint-sm) {
+    font-size: 20px;
+    &:before {
+      left: -72px;
+    }
+  }
+}

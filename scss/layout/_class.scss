@@ -9,10 +9,22 @@
   }
 }
 
+.nav--class {
+  margin-left: 20vw;
+  @include respond-to($breakpoint-sm) {
+    margin-left: 0;
+  }
+}
+
 .header {
-  align-self: center;
+  margin-left: 12.8vw;
+  margin-top: 10vh;
+  align-self: flex-start;
   justify-self: end;
   @include respond-to($breakpoint-sm) {
+    margin-left: 0;
+    margin-top: 0;
+    align-self: center;
     margin-right: 56px;
   }
 }

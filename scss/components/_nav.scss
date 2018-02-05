@@ -1,12 +1,26 @@
 .nav-container {
-    max-height: 80vh;
+    padding-top: 32px;
+    padding-left: 40px;
+    padding-bottom: 10vh;
+    margin-left: 0;
     overflow-y: scroll;
     list-style: none;
-    margin-left: 0;
+    transform: translateX(-8px);
+    @include respond-to($breakpoint-sm) {
+        margin-left: 0;
+        padding-left: 72px;
+        padding-top: 0;
+        padding-bottom: 0;
+        max-height: 40vh;
+        transform: translateX(-8px);
+    }
+    @include respond-to($breakpoint-lg) {
+        max-height: 60vh;
+    }
 }
 
 .nav {
-    height: 100vh;
+    min-height: 100vh;
     border-left: 1px solid $dgrey;
     display: flex;
     flex-direction: column;
@@ -16,6 +30,21 @@
     transform-origin: top;
     transform: scaleX(0);
     animation: grow-vert 0.8s $cubic-in-out forwards;
+}
+
+.nav--class {
+    margin-top: 56px;
+    min-height: 0;
+    transform-origin: bottom;
+    animation-delay: 0.25s;
+    justify-content: flex-start;
+    z-index: 0;
+    @include respond-to($breakpoint-sm) {
+        transform-origin: center;
+        min-height: 100vh;
+        margin-top: 0;
+        justify-content: center;
+    }
 }
 
 .nav__item {
@@ -33,22 +62,21 @@
     z-index: 30;
 }
 
-.nav__item--class {
-    cursor: pointer;
-    margin-bottom: 32px;
-    &:hover {
-        color: $main;
-        .nav__link--class {
-            &:after {
-                content: '';
-                position: absolute;
-                bottom: -8px;
-                left: 0;
-                background: $main;
-                width: 50%;
-                height: 4px;
-            }
-        }
+.nav__item--lone {
+    max-width: 60vw;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateX(-16px);
+    &:last-child {
+        margin-bottom: 0;
+    }
+    animation: show-right 0.5s $cubic-out 1s forwards;
+    @include respond-to($breakpoint-sm) {
+        margin-bottom: 32px;
+        max-width: 35vw;
+    }
+    @include respond-to($breakpoint-lg) {
+        max-width: 25vw;
     }
 }
 
@@ -58,27 +86,13 @@
     height: 100%;
     background: rgba(254, 254, 254, 0.9);
     font-family: $font-mono;
-    transition: transform 0.35s $cubic-out;
+    transition: all 0.35s $cubic-out;
     transform: translateX(-16px);
     opacity: 0;
     position: relative;
     pointer-events: none;
     span {
         opacity: 0;
-    }
-}
-
-.nav__link--class {
-    background: none;
-    margin-left: 5vw;
-    padding: 0;
-    width: 296px;
-    font-family: $font-head;
-    font-size: 20px;
-    opacity: 1;
-    transform: translateX(0);
-    @include respond-to($breakpoint-md) {
-        margin-left: 7.5vw;
     }
 }
 
