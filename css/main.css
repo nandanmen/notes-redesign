@@ -327,6 +327,10 @@ blockquote {
     .card:hover .card__desc {
       opacity: 0;
       transform: translateX(-10px) translateY(16px); }
+  @media only screen and (min-width: 768px) {
+    .card {
+      height: 64vh;
+      width: 70vw; } }
 
 .card__bkg {
   width: 85%;
@@ -336,6 +340,12 @@ blockquote {
   position: absolute;
   right: 0;
   z-index: 0; }
+  @media only screen and (min-width: 768px) {
+    .card__bkg {
+      border-radius: 32px; } }
+  @media only screen and (min-width: 1024px) {
+    .card__bkg {
+      border-radius: 48px; } }
 
 .card__content {
   display: flex;
@@ -353,6 +363,12 @@ blockquote {
   transform: translateY(-16px);
   opacity: 0;
   animation: 0.5s cubic-bezier(0.85, 0.01, 0.36, 1) 0.7s show-down forwards; }
+  @media only screen and (min-width: 768px) {
+    .card__dept {
+      font-size: 36px; } }
+  @media only screen and (min-width: 1024px) {
+    .card__dept {
+      font-size: 48px; } }
 
 .card__course {
   font-size: 192px;
@@ -382,6 +398,18 @@ blockquote {
     transform: scaleX(0);
     transform-origin: left;
     animation: 0.8s cubic-bezier(0.85, 0.01, 0.36, 1) slide-right forwards; }
+  @media only screen and (min-width: 768px) {
+    .card__course {
+      font-size: 320px; }
+      .card__course:before {
+        height: 30px;
+        bottom: -38px; } }
+  @media only screen and (min-width: 1024px) {
+    .card__course {
+      font-size: 410px; }
+      .card__course:before {
+        height: 38px;
+        bottom: -46px; } }
 
 .card__desc {
   font-family: "Libre Baskerville", serif;
@@ -389,9 +417,17 @@ blockquote {
   font-style: italic;
   text-align: right;
   width: 42vw;
-  transform: translateX(-10px) translateY(16px);
+  transform: translateY(16px);
+  margin-right: 10px;
   opacity: 0;
   animation: 0.5s cubic-bezier(0.85, 0.01, 0.36, 1) 0.7s show-up forwards; }
+  @media only screen and (min-width: 768px) {
+    .card__desc {
+      font-size: 28px; } }
+  @media only screen and (min-width: 1024px) {
+    .card__desc {
+      font-size: 34px;
+      width: 35vw; } }
 
 @media only screen and (min-width: 768px) {
   .header--xs {
@@ -604,6 +640,7 @@ blockquote {
   z-index: 100; }
 
 .btn {
+  cursor: pointer;
   padding: 8px 24px;
   border-radius: 16px;
   font-size: 24px;
