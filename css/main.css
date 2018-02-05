@@ -299,9 +299,20 @@ blockquote {
 
 .btn--next {
   top: 6vh; }
+  @media only screen and (min-width: 1280px) {
+    .btn--next {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20vw;
+      left: auto; } }
 
 .btn--prev {
   bottom: 6vh; }
+  @media only screen and (min-width: 1280px) {
+    .btn--prev {
+      top: 50%;
+      transform: translateY(-50%);
+      left: 20vw; } }
 
 .card {
   display: flex;
@@ -333,7 +344,7 @@ blockquote {
       width: 70vw; } }
   @media only screen and (min-width: 1280px) {
     .card {
-      width: 38vw;
+      width: 480px;
       height: 72vh; } }
 
 .card__bkg {
@@ -444,7 +455,7 @@ blockquote {
   @media only screen and (min-width: 1280px) {
     .card__desc {
       font-size: 24px;
-      width: 20vw; } }
+      width: 250px; } }
 
 @media only screen and (min-width: 768px) {
   .header--xs {
@@ -662,7 +673,8 @@ blockquote {
   border-radius: 16px;
   font-size: 24px;
   background: #FFFFFF;
-  color: #494949; }
+  color: #494949;
+  height: 48px; }
 
 .link {
   color: #3498DB;

@@ -16,8 +16,19 @@
 
 .btn--next {
   top: 6vh;
+  @include respond-to($breakpoint-lg) {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20vw;
+    left: auto;
+  }
 }
 
 .btn--prev {
   bottom: 6vh;
+  @include respond-to($breakpoint-lg) {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20vw;
+  }
 }
