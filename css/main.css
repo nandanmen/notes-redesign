@@ -387,9 +387,9 @@ blockquote {
   font-family: "Libre Baskerville", serif;
   font-size: 16px;
   font-style: italic;
+  text-align: right;
   width: 42vw;
   transform: translateX(-10px) translateY(16px);
-  transition: all 0.2s ease-in-out;
   opacity: 0;
   animation: 0.5s cubic-bezier(0.85, 0.01, 0.36, 1) 0.7s show-up forwards; }
 

@@ -95,9 +95,9 @@
   font-family: $font-serif;
   font-size: 16px;
   font-style: italic;
+  text-align: right;
   width: 42vw;
   transform: translateX(-10px) translateY(16px);
-  transition: all 0.2s ease-in-out;
   opacity: 0;
   animation: 0.5s $cubic-in-out 0.7s show-up forwards;
 }
