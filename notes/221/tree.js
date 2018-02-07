@@ -4,10 +4,20 @@ class Node {
     this.left = null;
     this.right = null;
   }
+
+  render() {
+
+  }
 }
 
 class BinaryTree {
   constructor(root) {
     this.root = root;
+  }
+
+  render(node) {
+    node.render();
+    render(node.left);
+    render(node.right);
   }
 }

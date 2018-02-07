@@ -30,6 +30,10 @@
     transform-origin: top;
     transform: scaleX(0);
     animation: grow-vert 0.8s $cubic-in-out forwards;
+    @include respond-to($breakpoint-lg) {
+        align-items: flex-end;
+        opacity: 0; // temporary
+    }
 }
 
 .nav--class {
@@ -60,6 +64,10 @@
         height: 100%;
     }
     z-index: 30;
+    @include respond-to($breakpoint-lg) {
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
 }
 
 .nav__item--lone {
@@ -101,7 +109,7 @@
     width: 16px;
     border-radius: 50%;
     border: 1px solid $dgrey;
-    background: $vlgrey;
+    background: $main-bkg;
     position: relative;
     &:hover {
         span {
