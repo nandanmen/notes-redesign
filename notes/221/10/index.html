@@ -33,18 +33,30 @@
       <p>We can generalize this relationship. Consider the following tree:</p>
       <div class='tree'>
         <div class='tree__level'>
-          <div class='tree__node tree__root'></div>
+          <div class='tree__node tree__root'>A</div>
         </div>
         <div class='tree__level'>
-          <div class='tree__node tree__leaf'></div>
-          <div class='tree__node tree__leaf'></div>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node'>C</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>D</div>
+            <div class='tree__node tree__leaf'>E</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf node--disable'></div>
+            <div class='tree__node tree__leaf'>F</div>
+          </div>
         </div>
       </div>
       <p>We can say that:</p>
       <ul>
-        <li>E and F are <em>descendants</em> of A</li>
-        <li>D and A are <em>ancestors</em> of G</li>
-        <li>B, C, and D are <em>siblings</em></li>
+        <li>D and E are <em>descendants</em> of A</li>
+        <li>C and A are <em>ancestors</em> of F</li>
+        <li>B and C are <em>siblings</em></li>
       </ul>
       <h2 class='note__subtitle'>Tree Terminology</h2>
       <p>There are several more important terms to describe trees:</p>
@@ -74,7 +86,25 @@
       <div class='math'>2<sup>h+1</sup> - 1 nodes, of which 2<sup>h</sup> are leaves</div>
       <p>The following binary tree is perfect:</p>
       <div class='tree'>
-
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>A</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node'>C</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>D</div>
+            <div class='tree__node tree__leaf'>E</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>F</div>
+            <div class='tree__node tree__leaf'>G</div>
+          </div>
+        </div>
       </div>
       <p>A perfect binary tree is also said to be <em>complete</em>. A binary tree is considered to be complete if:</p>
       <ul>
@@ -84,22 +114,94 @@
       </ul>
       <p>The following binary tree is complete, but <strong>not perfect</strong>:</p>
       <div class='tree'>
-        
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>A</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node'>C</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>D</div>
+            <div class='tree__node tree__leaf'>E</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>F</div>
+            <div class='tree__node tree__leaf node--disable'></div>
+          </div>
+        </div>
       </div>
-      <p>The following binary tree is <strong>not complete</strong> and <strong>not perfect</strong>:</p>
+      <p>The following binary tree is <strong>not complete</strong> and <strong>not perfect</strong> (because the node F is positioned on the right of C, not the left):</p>
       <div class='tree'>
-        
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>A</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node'>C</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>D</div>
+            <div class='tree__node tree__leaf'>E</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf node--disable'></div>
+            <div class='tree__node tree__leaf'>F</div>
+          </div>
+        </div>
       </div>
       <h3 class='section__subtitle'>Balanced Binary Trees</h3>
       <p>A binary tree is balanced if the leaves are <strong>all about the same distance</strong> from the root.</p>
       <p>The exact specification varies, but generally we want the left and right subtrees to be approximately the same height.</p>
       <p>The following is a <strong>balanced</strong> binary tree:</p>
       <div class='tree'>
-
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>A</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node'>C</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>D</div>
+            <div class='tree__node tree__leaf node--disable'></div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>E</div>
+            <div class='tree__node tree__leaf'>F</div>
+          </div>
+        </div>
       </div>
       <p>The following is an <strong>imbalanced</strong> binary tree:</p>
       <div class='tree'>
-
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>A</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>B</div>
+            <div class='tree__node node--disable'></div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>C</div>
+            <div class='tree__node tree__leaf'>D</div>
+          </div>
+          <div class='tree__pair node--disable'>
+            <div class='tree__node tree__leaf'></div>
+            <div class='tree__node tree__leaf'></div>
+          </div>
+        </div>
       </div>
       <h2 class='note__subtitle'>Binary Tree Traversal</h2>
       <p>A traversal algorithm for a binary tree visits each node in the tree. These traversal algorithms are naturally recursive (because the structure itself is recursive!).</p>

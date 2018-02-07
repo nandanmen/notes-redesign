@@ -1134,11 +1134,18 @@ blockquote {
 .tree__level {
   display: flex;
   justify-content: center;
-  margin-bottom: 28px;
-  position: relative; }
+  margin-bottom: 28px; }
   .tree__level:last-child {
     margin-bottom: 0; }
-  .tree__level:before {
+
+.tree__pair {
+  display: flex;
+  justify-content: center;
+  margin-right: 24px;
+  position: relative; }
+  .tree__pair:last-child {
+    margin-right: 0; }
+  .tree__pair:before {
     content: '';
     width: 74px;
     height: 2px;
@@ -1147,8 +1154,6 @@ blockquote {
     top: -16px;
     left: 50%;
     transform: translateX(-50%); }
-  .tree__level:first-child:before {
-    background: transparent; }
 
 .tree__node {
   width: 48px;
@@ -1156,6 +1161,11 @@ blockquote {
   border: 2px solid #3498DB;
   border-radius: 50%;
   margin-right: 24px;
+  color: #3498DB;
+  font-family: "Source Code Pro", monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative; }
   .tree__node:last-child {
     margin-right: 0; }
@@ -1183,5 +1193,8 @@ blockquote {
 
 .tree__leaf:after {
   background: transparent; }
+
+.node--disable {
+  opacity: 0; }
 
 /*# sourceMappingURL=main.css.map */

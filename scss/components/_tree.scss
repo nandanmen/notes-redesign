@@ -8,9 +8,18 @@
   display: flex;
   justify-content: center;
   margin-bottom: 28px;
-  position: relative;
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.tree__pair {
+  display: flex;
+  justify-content: center;
+  margin-right: 24px;
+  position: relative;
+  &:last-child {
+    margin-right: 0;
   }
   &:before {
     content: '';
@@ -22,11 +31,6 @@
     left: 50%;
     transform: translateX(-50%);
   }
-  &:first-child {
-    &:before {
-      background: transparent;
-    }
-  }
 }
 
 .tree__node {
@@ -35,6 +39,11 @@
   border: 2px solid $main;
   border-radius: 50%;
   margin-right: 24px;
+  color: $main;
+  font-family: $font-mono;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   &:last-child {
     margin-right: 0;
@@ -71,4 +80,8 @@
   &:after {
     background: transparent;
   }
+}
+
+.node--disable {
+  opacity: 0;
 }
