@@ -14,6 +14,9 @@
     left: auto;
     right: 9vw;
   }
+  @include respond-to($breakpoint-xl) {
+    right: 10vw;
+  }
 }
 
 .note {
@@ -27,6 +30,9 @@
   @include respond-to($breakpoint-lg) {
     grid-template-columns: 8vw 30vw 12vw 1fr;
     padding: 0;
+  }
+  @include respond-to($breakpoint-xl) {
+    grid-template-columns: 10vw 32vw 12vw 1fr;
   }
 }
 
@@ -45,6 +51,10 @@
     width: 30vw;
     margin: 0;
     top: 26vh;
+  }
+  @include respond-to($breakpoint-xl) {
+    left: 10vw;
+    width: 32vw;
   }
 }
 
@@ -65,10 +75,6 @@
   }
 }
 
-.class__desc {
-  width: 176px;
-}
-
 .note__number {
   margin-left: auto;
 }
@@ -84,5 +90,11 @@
     grid-column: 4;
     margin-top: 26vh;
     width: 480px;
+  }
+  @include respond-to($breakpoint-xl) {
+    width: 560px;
+  }
+  @include respond-to($bp-4k) {
+    width: 640px;
   }
 }

@@ -18,6 +18,7 @@
 }
 
 .class__desc {
+  width: 176px;
   font-family: $font-head;
   font-size: 16px;
   position: relative;
@@ -34,6 +35,14 @@
     bottom: -4px;
   }
   z-index: 20;
+  @include respond-to($breakpoint-lg) {
+    font-size: 18px;
+    width: 200px;
+  }
+  @include respond-to($breakpoint-xl) {
+    font-size: 22px;
+    width: 240px;
+  }
 }
 
 .note__number {
@@ -44,6 +53,12 @@
   opacity: 0;
   animation: 0.5s $cubic-in-out 0.6s show-up forwards;
   z-index: 20;
+  @include respond-to($breakpoint-lg) {
+    font-size: 18px;
+  }
+  @include respond-to($breakpoint-xl) {
+    font-size: 22px;
+  }
 }
 
 @keyframes show {

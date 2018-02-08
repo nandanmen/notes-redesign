@@ -13,6 +13,15 @@
   @include respond-to ($breakpoint-sm) {
     font-size: 18px;
   }
+  @include respond-to($breakpoint-xl) {
+    font-size: 22px;
+  }
+  @include respond-to($bp-4k) {
+    font-size: 26px;
+    > * {
+      margin-bottom: 32px;
+    }
+  }
   animation: show-down 1s $cubic-out 0.6s forwards;
 }
 
@@ -42,13 +51,25 @@
       top: -12px;
     }
   }
+  @include respond-to($breakpoint-xl) {
+    margin-top: 80px;
+    &:before {
+      height: 10px;
+    }
+  }
+  @include respond-to($bp-4k) {
+    &:before {
+      width: 40px;
+      top: -16px;
+    }
+  }
   &:first-child {
     margin-top: 0;
   }
 }
 
 .section__subtitle {
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .quote__title {

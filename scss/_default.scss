@@ -13,11 +13,20 @@ h1 {
     @include respond-to($breakpoint-sm) {
         font-size: 64px;
     }
+    @include respond-to($breakpoint-xl) {
+        font-size: 80px;
+    }
+    @include respond-to($bp-4k) {
+        font-size: 96px;
+    }
 }
 h2 {
     font-size: 24px;
     @include respond-to($breakpoint-sm) {
         font-size: 36px;
+    }
+    @include respond-to($breakpoint-xl) {
+        font-size: 48px;
     }
 }
 h3 {
@@ -25,6 +34,9 @@ h3 {
     font-size: 16px;
     @include respond-to($breakpoint-sm) {
         font-size: 24px;
+    }
+    @include respond-to($breakpoint-xl) {
+        font-size: 32px;
     }
 }
 
