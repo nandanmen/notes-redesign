@@ -32,7 +32,8 @@
     animation: grow-vert 0.8s $cubic-in-out forwards;
     @include respond-to($breakpoint-lg) {
         align-items: flex-end;
-        opacity: 0; // temporary
+        border-left: none;
+        border-right: 1px solid $dgrey;
     }
 }
 
@@ -67,6 +68,7 @@
     @include respond-to($breakpoint-lg) {
         flex-direction: row-reverse;
         justify-content: flex-end;
+        transform: translateX(8px);
     }
 }
 
@@ -92,7 +94,7 @@
     margin-left: 16px;
     padding: 4px 8px;
     height: 100%;
-    background: rgba(254, 254, 254, 0.9);
+    background: rgba(250, 250, 250, 0.9);
     font-family: $font-mono;
     transition: all 0.35s $cubic-out;
     transform: translateX(-16px);
@@ -101,6 +103,11 @@
     pointer-events: none;
     span {
         opacity: 0;
+    }
+    @include respond-to($breakpoint-lg) {
+        margin-left: 0;
+        margin-right: 16px;
+        transform: translateX(16px);
     }
 }
 
@@ -112,9 +119,8 @@
     background: $main-bkg;
     position: relative;
     &:hover {
-        span {
-            opacity: 1;
-        }
+        border: none;
+        background: $main;
         + .nav__link {
             transform: translateX(0);
             opacity: 1;
@@ -125,19 +131,12 @@
         }
     }
     span {
-        width: 60%;
-        height: 60%;
-        border-radius: 50%;
-        background: $main;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        opacity: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 
 .nav__button--active {
-    span {
-        opacity: 1;
-    }
+    border: none;
+    background: $main;
 }
