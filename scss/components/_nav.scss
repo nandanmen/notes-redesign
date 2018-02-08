@@ -140,3 +140,74 @@
     border: none;
     background: $main;
 }
+
+.note__nav__item {
+    width: 100%;
+    display: flex;
+    font-family: $font-head;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    &:hover {
+        .nav__sublist {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+.nav__name {
+    font-family: inherit;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        background: $black;
+        width: 20%;
+        height: 4px;
+        left: 0;
+        top: 26px;
+    }
+}
+
+.nav__sublist {
+    margin-left: auto;
+    list-style: none;
+    display: flex;
+}
+
+.sublist__item {
+    cursor: pointer;
+    position: relative;
+    font-weight: 400;
+    text-transform: none;
+    margin-left: 16px;
+    &:first-child {
+        margin-left: 0;
+    }
+    &:hover {
+        .sublist__sub {
+            pointer-events: all;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.sublist__sub {
+    pointer-events: none;
+    position: absolute;
+    list-style: none;
+    background: $grey;
+    font-family: $font-body;
+    font-size: 0.9em;
+    margin-left: 0;
+    width: 184px;
+    top: 28px;
+    left: 0;
+    padding: 16px 24px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: all 0.25s $cubic-out;
+}

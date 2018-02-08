@@ -13,6 +13,12 @@ h1 {
     @include respond-to($breakpoint-sm) {
         font-size: 64px;
     }
+    @include respond-to($breakpoint-lg) {
+        font-size: 56px;
+    }
+    @include respond-to($bp-1440) {
+        font-size: 64px;
+    }
     @include respond-to($breakpoint-xl) {
         font-size: 80px;
     }
