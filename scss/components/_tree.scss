@@ -70,6 +70,18 @@
   }
 }
 
+.tree__highlight {
+  border: 4px solid $main;
+  &:before {
+    width: 4px;
+    top: -18px;
+  }
+  &:after {
+    width: 4px;
+    bottom: -18px;
+  }
+}
+
 .tree__root {
   &:before {
     background: transparent;

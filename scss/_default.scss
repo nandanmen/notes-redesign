@@ -17,7 +17,7 @@ h1 {
 h2 {
     font-size: 24px;
     @include respond-to($breakpoint-sm) {
-        font-size: 40px;
+        font-size: 36px;
     }
 }
 h3 {
@@ -34,12 +34,29 @@ p {
     line-height: 1.618em;
 }
 
+table {
+    display: flex;
+    justify-content: center;
+}
 table, td, th {
     border-collapse: collapse;
     text-align: center;
+    font-family: $font-mono;
+    color: $main;
 }
 td, th {
     padding: 8px;
+    border-right: 1px solid $main;
+    border-left: 1px solid $main;
+    &:first-child {
+        border-left: none;
+    }
+    &:last-child {
+        border-right: none;
+    }
+}
+th {
+    border-bottom: 1px solid $main;
 }
 
 a {

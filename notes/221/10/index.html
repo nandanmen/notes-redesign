@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Trees</title>
+  <title>Binary Search Trees</title>
   <link href="../../../css/main.css" type="text/css" rel="stylesheet">
 </head>
 <body>
   <main class='note'>
     <nav class='nav nav--note'></nav>
     <header class='note__header'>
-      <h1 class='note__title'>Data Structure: Trees</h1>
+      <h1 class='note__title'>Data Structure: Binary Search Trees</h1>
       <div class='note__desc'>
         <div class='class__desc'>Beginner Algorithms and Data Structures</div>
         <div class='note__number'>221.10</div>
@@ -211,8 +211,102 @@
         <li>preOrder</li>
         <li>postOrder</li>
       </ol>
-      <h3 class='section__subtitle'>In-Order</h3>
-      <p>An inOrder traversal algorithm traverses the tree, <em>to no surprise</em>, in order &mdash; the left branch is traversed first, then the current node, then the right branch.</p>
+      <p>The order of these traversal methods are as follows (top being the first):</p>
+      <table>
+        <tr>
+          <th>inOrder</th>
+          <th>preOrder</th>
+          <th>postOrder</th>
+        </tr>
+        <tr>
+          <td>left</td>
+          <td>curr</td>
+          <td>left</td>
+        </tr>
+        <tr>
+          <td>curr</td>
+          <td>left</td>
+          <td>right</td>
+        </tr>
+        <tr>
+          <td>right</td>
+          <td>right</td>
+          <td>curr</td>
+        </tr>
+      </table>
+      <h2 class='note__subtitle'>Dictionary ADT</h2>
+      <p>The dictionary ADT is an ADT that stores values associated with some specified keys. Generally we would want to be able to (given a key):</p>
+      <ul>
+        <li><strong>Insert</strong> some element</li>
+        <li><strong>Remove</strong> some element</li>
+        <li><strong>Find</strong> a particular element</li>
+      </ul>
+      <p>There are several options that we can use to implement this ADT. We can use a linked list or an array, each with its own pros and cons.</p>
+      <h2 class='note__subtitle'>Binary Search Trees</h2>
+      <p>A binary <strong>search</strong> tree is one way to implement the above ADT. It has the same constraints as a binary tree but with one additional restriction:</p>
+      <ul>
+        <li>For all nodes in the tree:
+          <ul>
+            <li>All nodes in the left subtree has to be <strong>smaller</strong> than the current node.</li>
+            <li>All nodes in the right subtree has to be <strong>larger</strong> than the current node.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>For example, the following binary tree is a binary search tree:</p>
+      <div class='tree'>
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>17</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>13</div>
+            <div class='tree__node'>27</div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>9</div>
+            <div class='tree__node tree__leaf'>16</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'>20</div>
+            <div class='tree__node tree__leaf'>39</div>
+          </div>
+        </div>
+      </div>
+      <blockquote>
+        <p>An <strong>inOrder</strong> traversal of a BST returns the data in sorted order.</p>
+      </blockquote>
+      <h3 class='section__subtitle'>Search</h3>
+      <p>To find a value in a BST search tree we simply have to compare the value with the value of the current node.</p>
+      <ul>
+        <li>If it is <strong>smaller</strong>, search the left tree.</li>
+        <li>If it is <strong>larger</strong>, search the right tree.</li>
+      </ul>
+      <p>This removes the requirement of searching the other subtrees because we know it is for sure not there.</p>
+      <p>Let's take our previous tree. Say we want to search for 16:</p>
+      <div class='tree'>
+        <div class='tree__level'>
+          <div class='tree__node tree__root tree__highlight'>17</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__highlight'>13</div>
+            <div class='tree__node'></div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'></div>
+            <div class='tree__node tree__leaf tree__highlight'>16</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'></div>
+            <div class='tree__node tree__leaf'></div>
+          </div>
+        </div>
+      </div>
+      <p>Since 16 < 17, we check the left subtree. We find that 16 > 13, so we check the right subtree. There we find 16.</p>
     </article>
   </main>
   <script src="../nav.js" type="text/javascript"></script>

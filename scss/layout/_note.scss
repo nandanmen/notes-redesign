@@ -25,7 +25,8 @@
     grid-template-columns: 48px 1fr 8px 24px 480px 32px 1fr 48px;
   }
   @include respond-to($breakpoint-lg) {
-    grid-template-columns: 48px 80px 400px 80px 1fr;
+    grid-template-columns: 8vw 30vw 12vw 1fr;
+    padding: 0;
   }
 }
 
@@ -40,16 +41,19 @@
   }
   @include respond-to($breakpoint-lg) {
     position: fixed;
-    left: 13vw;
+    left: 8vw;
     width: 30vw;
     margin: 0;
-    top: 30vh;
+    top: 26vh;
   }
 }
 
 .note__title {
   @include respond-to($breakpoint-sm) {
     margin-bottom: 56px;
+  }
+  @include respond-to($breakpoint-lg) {
+    margin-bottom: 88px;
   }
 }
 
@@ -77,11 +81,8 @@
     margin-bottom: 26vh;
   }
   @include respond-to($breakpoint-lg) {
-    display: grid;
-    grid-template-columns: 1fr 480px 1fr;
+    grid-column: 4;
     margin-top: 26vh;
-    * {
-      grid-column: 2;
-    }
+    width: 480px;
   }
 }
