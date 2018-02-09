@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Binary Search Trees</title>
+  <title>Memory & Numbers Summary</title>
   <link href="../../../css/main.css" type="text/css" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
@@ -25,7 +25,25 @@
       <p>4 byte integers are stored differently in different processors. Most processors are said to be <strong>big-endian</strong>, while modern intel processors are said to be <strong>little-endian</strong>.</p>
       <p>Consider the integer <code class='code--inline'>0x12345678</code>. This integer is stored differently based on the type of processor (as shown on the right).</p>
       <h2 class='content__subtitle'>Alignment</h2>
-      <p>Technically items in memory can be placed anywhere.</p>
+      <p>Technically items in memory can be placed anywhere. However it is more efficient if memory is <em>aligned</em>.</p>
+      <p>The CPU accesses memory in different <strong>blocks</strong>. If memory is unaligned, it is possible that the CPU will have to access more than one block to access the same item in memory.</p>
+      <p>The figure on the right shows the difference more clearly by using a block of memory that contains a <code class='code--inline'>char</code> and an <code class='code--inline'>int</code>.</p>
+      <h2 class='content__subtitle'>Bit Shifting</h2>
+      <p>Shifting bits is the same as multiplying/dividing by 2.</p>
+      <ul>
+        <li>Shifting <strong>left</strong> by b is the same as multiplying by 2<sup>b</sup></li>
+        <li>Shifting <strong>right</strong> by b is the same as dividing by 2<sup>b</sup></li>
+      </ul>
+      <h2 class='content__subtitle'>Extending/Trunacting Integers</h2>
+      <p><strong>Extending</strong> an integer is when you <em>increase</em> the number of bytes used to store the integer.</p>
+      <pre><code>byte b = -6;
+int i = (byte) b; // prints 0xfffffffa</code></pre>
+      <p>There are two types:</p>
+      <ul>
+        <li><strong>Signed</strong> extension &mdash; used with signed numbers (copies f to the empty bits).</li>
+        <li><strong>Unsigned</strong> extension &mdash; used with unsigned numbers (copies 0 to the empty bits).</li>
+      </ul>
+      <p><strong>Truncating</strong> an integer is when you <em>decrease</em> the number of bytes used to store the integer.</p>
     </article>
     <aside class='summary__figure'>
       <figure class='figure'>
