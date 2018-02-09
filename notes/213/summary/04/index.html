@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Structs & Dynamic Allocation</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Structs & Dynamic Allocation</h1>
+      <p>A <strong>struct</strong> is a collection of variables that are allocated and accessed together &mdash; similar to a Java class.</p>
+      <p>They are <em>defined</em> quite similarly:</p>
+      <pre><code>struct D {
+  int e;
+  int f;
+}</code></pre>
+      <p>They are <em>declared</em> with <code class='code--inline'>struct</code> plus the name of the struct.</p>
+      <ul>
+        <li><strong>Static</strong> declaration &mdash; <code class='code--inline'>struct D d0;</code></li>
+        <li><strong>Dynamic</strong> declaration &mdash; <code class='code--inline'>struct D* d1;</code></li>
+      </ul>
+      <h2 class='content__subtitle'>Struct Access</h2>
+      <p>Static structs are accessed using dot notation: <code class='code--inline'>d0.e</code></p>
+      <p>Dynamic structs are accessed using arrow notation: <code class='code--inline'>d1->e</code></p>
+      <p>Unlike array members, static members have a <strong>static/constant</strong> offset. For example, for our struct D above, the offset for f is always 4.</p>
+      <p>In assembly static offsets can be retrieved using the instruction on the right. If we want to access d0.f, we do:</p>
+      <pre><code>ld $d0, r0    # r0 = &d0
+ld 4(r0), r0  # r0 = d0.f</code></pre>
+      <h2 class='content__subtitle'>Structs Inside Structs</h2>
+      <p>Unlike array members, static members have a <strong>static/constant</strong> offset. For example, for our struct D above, the offset for f is always 4.</p>
+      <p>In assembly static offsets can be retrieved using the instruction on the right. If we want to access d0.f, we do:</p>
+      <pre><code>ld $d0, r0    # r0 = &d0
+ld 4(r0), r0  # r0 = d0.f</code></pre>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+        <div class='figure__item'>
+          ld o(rs), rd<br>
+          where o = p * 4
+        </div>
+      </figure>
+    </aside>
+  </main>
+  <script src="../figure.js" type="text/javascript"></script>
+</body>
+</html>

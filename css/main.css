@@ -1424,6 +1424,15 @@ blockquote {
 .node--disable {
   opacity: 0; }
 
+.tree__delete {
+  background: #FF3754;
+  border: none;
+  color: #FFFFFF; }
+  .tree__delete:before {
+    opacity: 0; }
+  .tree__delete:after {
+    opacity: 0; }
+
 .summary {
   background: #fafafa;
   height: 100vh;
@@ -1436,11 +1445,13 @@ blockquote {
   justify-content: center; }
 
 .figure {
-  position: relative;
-  margin-top: 40vh; }
-
-.figure__item {
-  margin-bottom: 25vh; }
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  width: 50vw;
+  height: 100vh; }
 
 .figure--table {
   margin-top: 24px; }
@@ -1497,8 +1508,20 @@ blockquote {
 
 .figure {
   font-family: "Fira Code", monospace;
+  line-height: 2;
   color: #FFFFFF;
   font-size: 20px; }
+
+.figure__item {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-16px);
+  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
+.figure--active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0); }
 
 .caption {
   background: #3498DB;

@@ -12,12 +12,17 @@
 }
 
 .figure {
-  position: relative;
-  margin-top: 40vh;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  width: 50vw;
+  height: 100vh;
 }
 
 .figure__item {
-  margin-bottom: 25vh;
+
 }
 
 .figure--table {

@@ -304,18 +304,18 @@
       <p>Let's take our previous tree. Say we want to search for 16:</p>
       <div class='tree'>
         <div class='tree__level'>
-          <div class='tree__node tree__root tree__highlight'>17</div>
+          <div class='tree__node tree__root'>17</div>
         </div>
         <div class='tree__level'>
           <div class='tree__pair'>
-            <div class='tree__node tree__highlight'>13</div>
+            <div class='tree__node'>13</div>
             <div class='tree__node'></div>
           </div>
         </div>
         <div class='tree__level'>
           <div class='tree__pair'>
             <div class='tree__node tree__leaf'></div>
-            <div class='tree__node tree__leaf tree__highlight'>16</div>
+            <div class='tree__node tree__leaf'>16</div>
           </div>
           <div class='tree__pair'>
             <div class='tree__node tree__leaf'></div>
@@ -324,6 +324,41 @@
         </div>
       </div>
       <p>Since 16 < 17, we check the left subtree. We find that 16 > 13, so we check the right subtree. There we find 16.</p>
+      <h3 class='section__subtitle'>Removal</h3>
+      <p>Removal in a binary tree is not as straightforward as search or insertion. There are three cases to consider:</p>
+      <ol>
+        <li>The node to remove has no children</li>
+        <li>The node to remove has one child</li>
+        <li>The node to remove has two children</li>
+      </ol>
+      <h3>Case 1</h3>
+      <p>If the node has no children, then to remove it we simply remove the link between it and its parent:</p>
+      <div class='tree'>
+        <div class='tree__level'>
+          <div class='tree__node tree__root'>17</div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node'>13</div>
+            <div class='tree__node'></div>
+          </div>
+        </div>
+        <div class='tree__level'>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'></div>
+            <div class='tree__node tree__leaf tree__delete'>16</div>
+          </div>
+          <div class='tree__pair'>
+            <div class='tree__node tree__leaf'></div>
+            <div class='tree__node tree__leaf'></div>
+          </div>
+        </div>
+      </div>
+      <h3>Case 2</h3>
+      <p>If the node has one child, then we attach its child to its parent, then remove the node:</p>
+      <h3>Case 3</h3>
+      <p>If the node has two children, then we have to find its <strong>predecessor</strong>, then replace it with its predecessor.</p>
+      <p>A node's predecessor is the <em>right most</em> node of its <em>left subtree</em>. It is essentially the largest value in the tree less than the node.</p>
     </article>
   </main>
   <script src="../nav.js" type="text/javascript"></script>

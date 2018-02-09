@@ -97,3 +97,15 @@
 .node--disable {
   opacity: 0;
 }
+
+.tree__delete {
+  background: $red;
+  border: none;
+  color: $white;
+  &:before {
+    opacity: 0;
+  }
+  &:after {
+    opacity: 0;
+  }
+}
