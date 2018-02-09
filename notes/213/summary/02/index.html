@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Static Scalars & Arrays</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Static Scalars and Arrays</h1>
+      <p>Whenever we write code in a <strong>high-level</strong> programming language like C, there is a <em>compiler</em> that translates the language to something machines can understand.</p>
+      <p><strong>Static</strong> elements are elements that the compiler knows and can compute.</p>
+      <p><strong>Dynamic</strong> elements are all other elements that is impossible for the compiler to know.</p>
+      <h2 class='content__subtitle'>Static Variables</h2>
+      <p>In C, static variables are all <strong>global</strong> variables and all variables that are explicitly declared static.</p>
+      <p>All static variables are allocated a spot in memory. For example take the following global variables:</p>
+      <pre><code>int a;
+int b[10];</code></pre>
+      <p>They will each be given some address in memory, such as:</p>
+      <pre><code>0x1000 : a
+0x2000 : b[0]
+0x2004 : b[1]
+...
+0x2024 : b[9]</code></pre>
+      <h2 class='content__subtitle'>Assembly</h2>
+      <p>The <strong>assembly language</strong> is the language that machines can understand.</p>
+      <p>What if we want to do something like <code class='code--inline'>b[a] = a</code>? Let's try to implement this in assembly (the first five basic assembly instructions is shown on the right).</p>
+      <p>First we need to load the appropriate values, i.e. a and b. Here we used the first load instruction:</p>
+      <pre><code>ld $a, r0  # r0 = address of a
+ld $b, r1  # r1 = address of b</code></pre>
+      <p>Now we want the <em>value</em> of a, and not the address. So we use the second load instruction:</p>
+      <pre><code>ld (r0), r0  # r0 = a</code></pre>
+      <p>Now we want to store this value to b but with an offset of a. So we use the second store instruction:</p>
+      <pre><code>st r0, (r1, r0, 4)  # b[a] = a</code></pre>
+      <p>All of the instructions together:</p>
+      <pre><code>ld $a, r0           # r0 = address of a
+ld $b, r1           # r1 = address of b
+ld (r0), r0         # r0 = a
+st r0, (r1, r0, 4)  # b[a] = a</code></pre>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+        <div class='figure__item'>
+          <table class='figure--table table--clean'>
+            <tr>
+              <th>ld $v, rd</th>
+              <td>load the <em>address</em> of v to rd</td>
+            </tr>
+            <tr>
+              <th>ld (rs), rd</th>
+              <td>load the <em>value</em> at address <br>
+              rs to rd</td>
+            </tr>
+            <tr>
+              <th>ld (rs, ri, 4), rd</th>
+              <td>load the value at address<br>
+              (rs + ri * 4) to rd</td>
+            </tr>
+            <tr>
+              <th>st rs, (rd)</th>
+              <td>store rs to the value at<br>
+              address rd</td>
+            </tr>
+            <tr>
+              <th>st rs, (rd, ri, 4)</th>
+              <td>store rs to the value at<br> 
+              address (rd + ri * 4)</td>
+            </tr>
+          </table>
+        </div>
+      </figure>
+    </aside>
+  </main>
+</body>
+</html>

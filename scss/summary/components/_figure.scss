@@ -32,6 +32,19 @@
   }
 }
 
+.table--clean {
+  margin-top: 130vh;
+  td, th {
+    padding: 16px 24px;
+    text-align: left;
+  }
+  th {
+    font-weight: 400;
+    border-bottom: none;
+    text-align: right;
+  }
+}
+
 .fig__sub {
   margin-top: 24px;
 }
