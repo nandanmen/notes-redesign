@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pointers</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Pointers & Arithmetic</h1>
+      <p>A pointer is a variable that contains an <strong>address</strong> of another variable.</p>
+      <p>Unlike Java, an array variable in C can either store a pointer to the array or the array itself. An array can be accessed in one of two ways:</p>
+      <p>Using bracket notation:</p>
+      <pre><code>int * a;
+a[4] = 5</code></pre>
+      <p>Or <strong>performing arithmetic</strong> on the pointer:</p>
+      <pre><code>int * a;
+*(a + 4) = 5</code></pre>
+      <p>This suggests that adding a number <code class='code--inline'>x</code> to a pointer is the same as adding by <code class='code--inline'>x * 4</code> (for int pointers).</p>
+      <blockquote>
+        <p>For some variable <code>i</code> and pointer <code>j</code>:</p>
+        <ul>
+          <li><code>&i</code> returns the address of i</li>
+          <li><code>*j</code> returns the value pointed to by j</li>
+        </ul>
+      </blockquote>
+      <h2 class='content__subtitle'>Pointer Arithmetic</h2>
+      <p>For int pointers, <strong>adding/subtracting an integer</strong> to a pointer will increase the value of the pointer by 4 * the integer:</p>
+      <pre><code>int* a;
+a = malloc(10*sizeof(int)); // say at 0x1000
+a++; // a == 0x1004 == a[1]
+a--; // a == 0x1000 == a[0]</code></pre>
+      <p>Adding/subtracting <strong>two pointers together</strong> will yield the difference in index:</p>
+      <pre><code>int *a, *b;
+a = malloc(10*sizeof(int));
+a = &a[7];
+b = &a[2];
+a - b == 5;</code></pre>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+        
+      </figure>
+    </aside>
+  </main>
+</body>
+</html>
