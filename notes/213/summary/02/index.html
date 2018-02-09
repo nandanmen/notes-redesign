@@ -41,6 +41,29 @@ ld $b, r1  # r1 = address of b</code></pre>
 ld $b, r1           # r1 = address of b
 ld (r0), r0         # r0 = a
 st r0, (r1, r0, 4)  # b[a] = a</code></pre>
+      <p>It is generally good practice to comment out each line of assembly (as shown above) and to list static allocations, like so:</p>
+      <pre><code>.pos 0x1000
+a:    .long 0x00000000
+
+.pos 0x2000
+b:    .long 0x00000000
+      .long 0x00000000</code></pre>
+      <h2 class='content__subtitle'>Global Dynamic Arrays</h2>
+      <p>Dynamic objects are not stored in the same place in memory as static variables.</p>
+      <p>Instead of being allocated by the compiler, they are allocated by making <em>function calls</em>.</p>
+      <p>For example if we want to allocate an array dynamically then we first we have to (statically) declare a <strong>pointer</strong> to the array:</p>
+      <pre><code>int* b;</code></pre>
+      <p>Then allocate the memory with a call to <code class='code--inline'>malloc</code> in some function call:</p>
+      <pre><code>b = malloc(10 * sizeof(int))</code></pre>
+      <p>Let's say we would like to do the same thing as we did before &mdash; <code class='code--inline'>b[a] = a</code> &mdash; using dynamic arrays instead.</p>
+      <p>We first load our static variables:</p>
+      <pre><code>ld $a, r0    # r0 = address of a
+ld (r0), r0  # r0 = a
+ld $b, r1    # r1 = address of b</code></pre>
+      <p>But remember that b is a pointer, which means that it doesn't hold a value but rather an address. So we have to do an additional step:</p>
+      <pre><code>ld (r1), r1    # r1 = address of b[0]</code></pre>
+      <p>Then we do the same thing for <code class='code--inline'>b[a] = a</code>:</p>
+      <pre><code>st r0, (r1, r0, 4)  # b[a] = a</code></pre>
     </article>
     <aside class='summary__figure'>
       <figure class='figure'>
