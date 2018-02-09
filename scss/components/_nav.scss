@@ -171,9 +171,11 @@
 }
 
 .nav__sublist {
-    margin-left: auto;
     list-style: none;
     display: flex;
+    opacity: 0;
+    transform: translateX(-16px);
+    animation: show-right 0.5s $cubic-in-out 0.25s forwards;
 }
 
 .sublist__item {
@@ -181,7 +183,7 @@
     position: relative;
     font-weight: 400;
     text-transform: none;
-    margin-left: 16px;
+    margin-left: 24px;
     &:first-child {
         margin-left: 0;
     }
@@ -201,9 +203,9 @@
     background: $grey;
     font-family: $font-body;
     font-size: 0.9em;
+    margin-top: 0;
     margin-left: 0;
     width: 184px;
-    top: 28px;
     left: 0;
     padding: 16px 24px;
     border-radius: 8px;

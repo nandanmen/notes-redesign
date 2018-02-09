@@ -1,3 +1,10 @@
+.class-nav {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .nav-main {
   position: fixed;
   left: 0;
@@ -9,6 +16,27 @@
     width: 30vw;
     left: 10vw;
     top: 10vh;
+  }
+}
+
+.note__nav__item {
+  @include respond-to($breakpoint-lg) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @include respond-to($bp-1440) {
+    flex-direction: row;
+    align-items: baseline;
+  }
+}
+
+.nav__sublist {
+  @include respond-to($breakpoint-lg) {
+    margin-top: 16px;
+    margin-left: 0;
+  }
+  @include respond-to($bp-1440) {
+    margin-top: 0;
   }
 }
 

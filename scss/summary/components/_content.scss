@@ -1,0 +1,28 @@
+.summary__content {
+  font-size: 18px;
+}
+
+.content__title {
+  width: 30vw;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 12px;
+    background: $main;
+    bottom: -20px;
+    left: 4px;
+  }
+}
+
+.content__subtitle {
+  font-size: 28px;
+}
+
+.code--inline {
+  font-size: 1em;
+  background: $grey;
+  padding: 6px 10px;
+  border-radius: 8px;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Binary Search Trees</title>
+  <link href="../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Memory and Numbers</h1>
+      <p>The <strong>memory</strong> in a computer is essentially a large collection of bytes. Every byte has a unique <strong>address</strong> assigned to it.</p>
+      <p>Many things are too large to fit into one byte, so bytes in a memory are often categorized into <strong>chunks</strong>.</p>
+      <ul>
+        <li>The <strong>address</strong> of a chunk is the address of the first byte.</li>
+      </ul>
+      <p>Integer data types are shown on the table on the right, with their respective sizes and names in C and Java.</p>
+      <blockquote>
+        <p>Only 4 byte integers are used in 213.</p>
+      </blockquote>
+      <h2 class='content__subtitle'>Big & Little Endian</h2>
+      <p>4 byte integers are stored differently in different processors. Most processors are said to be <strong>big-endian</strong>, while modern intel processors are said to be <strong>little-endian</strong>.</p>
+      <p>Consider the integer <code class='code--inline'>0x12345678</code>. This integer is stored differently based on the type of processor (as shown on the right).</p>
+      <h2 class='content__subtitle'>Alignment</h2>
+      <p>Technically items in memory can be placed anywhere.</p>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+        <div class='figure__item'>
+          <div class='figure__title'>Integer data types by size</div>
+          <table class='figure--table'>
+            <tr>
+              <th># bytes</th>
+              <th>C</th>
+              <th>Java</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>char</td>
+              <td>byte</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>short</td>
+              <td>short</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>int</td>
+              <td>int</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>long</td>
+              <td>long</td>
+            </tr>
+          </table>
+        </div>
+        <div class='figure__item'>
+          <div class='figure__title'>Int: 0x12345678</div>
+          <div class='fig__sub'>
+            <div class='figure__title'>Big endian</div>
+            <div class='fig__mem'>
+              <div class='fig__mem__block'>12</div>
+              <div class='fig__mem__block'>34</div>
+              <div class='fig__mem__block'>56</div>
+              <div class='fig__mem__block'>78</div>
+            </div>
+          </div>
+          <div class='fig__sub'>
+            <div class='figure__title'>Little endian</div>
+            <div class='fig__mem'>
+              <div class='fig__mem__block'>78</div>
+              <div class='fig__mem__block'>56</div>
+              <div class='fig__mem__block'>34</div>
+              <div class='fig__mem__block'>12</div>
+            </div>
+          </div>
+        </div>
+      </figure>
+    </aside>
+  </main>
+</body>
+</html>

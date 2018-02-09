@@ -1,0 +1,56 @@
+.summary__figure {
+  background: $secondary;
+}
+
+.figure {
+  font-family: $font-mono;
+  color: $white;
+  font-size: 24px;
+}
+
+.caption {
+  background: $main;
+  border-radius: 16px;
+  @include box-shadow;
+}
+
+.figure--table {
+  font-size: 20px;
+  td, th {
+    color: $white;
+    padding: 16px;
+  }
+  th, td {
+    border-bottom: 1px solid $white;
+    border-right: 1px solid $white;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  td {
+    border-bottom: none;
+  }
+}
+
+.fig__sub {
+  margin-top: 24px;
+}
+
+.fig__mem {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
+
+.fig__mem__block {
+  width: 48px;
+  height: 48px;
+  border: 2px solid $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 16px;
+  &:first-child {
+    margin-left: 0;
+  }
+}

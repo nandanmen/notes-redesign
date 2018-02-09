@@ -9,6 +9,7 @@
 @import "layout/class";
 
 @import "components/card";
+@import "components/class-nav";
 @import "components/header";
 @import "components/nav";
 @import "components/buttons";
@@ -22,3 +23,7 @@
 @import "components/memory";
 @import "components/queue";
 @import "components/tree";
+
+@import "summary/layout";
+@import "summary/components/content";
+@import "summary/components/figure";

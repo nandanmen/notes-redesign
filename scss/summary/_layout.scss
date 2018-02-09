@@ -1,0 +1,54 @@
+.summary {
+  background: $main-bkg;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+}
+
+.summary__figure {
+  display: flex;
+  justify-content: center;
+}
+
+.figure {
+  position: relative;
+  margin-top: 40vh;
+}
+
+.figure__item {
+  margin-bottom: 25vh;
+}
+
+.figure--table {
+  margin-top: 24px;
+}
+
+.caption {
+  position: absolute;
+  min-width: 40%;
+  min-height: 48px;
+  bottom: 10vh;
+}
+
+.summary__content {
+  padding-bottom: 20vh;
+  margin-left: 8vw;
+  max-width: 30vw;
+  > * {
+    margin-bottom: 24px;
+  }
+}
+
+.content__title {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+}
+
+.content__subtitle {
+  margin-top: 64px;
+  margin-bottom: 5vh;
+  &:nth-child(2) {
+    margin-top: 0;
+  }
+}
