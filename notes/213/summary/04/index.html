@@ -31,16 +31,111 @@
       <pre><code>ld $d0, r0    # r0 = &d0
 ld 4(r0), r0  # r0 = d0.f</code></pre>
       <h2 class='content__subtitle'>Structs Inside Structs</h2>
-      <p>Unlike array members, static members have a <strong>static/constant</strong> offset. For example, for our struct D above, the offset for f is always 4.</p>
-      <p>In assembly static offsets can be retrieved using the instruction on the right. If we want to access d0.f, we do:</p>
-      <pre><code>ld $d0, r0    # r0 = &d0
-ld 4(r0), r0  # r0 = d0.f</code></pre>
+      <p>Struct variables may be declared <em>inside</em> other struct variables. For example:</p>
+      <pre><code>struct A {
+  int a;
+  int b;
+};
+
+struct X {
+  int i;
+  struct A s;
+  int j;
+};</code></pre>
+      <p>What is the <strong>offset to j</strong> here?</p>
+      <p>If the struct is declared <em>statically</em>, then it is the same as if the members of the struct is inside the parent struct &mdash; so the offset to j would be 12.</p>
+      <p>If it is declared dynamically, then the only thing contained in the parent struct is the address of the other struct:</p>
+      <pre><code>struct X {
+  int i;
+  struct A* s;
+  int j;
+};</code></pre>
+      <p>In this case the offset to j is <strong>8</strong>.</p>
+      <h2 class='content__subtitle'>Deallocation</h2>
+      <p>After assigning memory, programs have to explicitly free up memory space so other programs can use it.</p>
+      <p>You can do this by calling <code class='code--inline'>free(x)</code>, where x is some pointer. Afterwards, you have to make sure to change x to <code class='code--inline'>0</code> or <code class='code--inline'>null</code>, so that x does not point to a block of memory that was freed:</p>
+      <pre><code>int* a = malloc(5*sizeof(int));
+doSomething(a);
+free(a);
+a = 0;</code></pre>
+      <p>A rule of thumb is that every <strong>malloc should be accompanied by a free</strong>.</p>
+      <p>Explicit delete can cause serious problems when used incorrectly because of something called <em>dangling pointers</em>.</p>
+      <h2 class='content__subtitle'>Dangling Pointers</h2>
+      <p>A <strong>dangling pointer</strong> is a pointer that points to a block of memory that was previously freed.</p>
+      <p>They are a serious problem because it allows the program to write to a spot of memory that is likely being used by another program.</p>
+      <p>This problem occurs if malloc and free occur in different places in the code, such as when a function returns a pointer to an object it allocates.</p>
+      <p>We have several options to avoid dangling pointer issues:</p>
+      <ol>
+        <li>Colocate allocation and deallocation</li>
+        <li>Use local variables</li>
+        <li>Reference counting</li>
+      </ol>
     </article>
     <aside class='summary__figure'>
       <figure class='figure'>
         <div class='figure__item'>
           ld o(rs), rd<br>
           where o = p * 4
+        </div>
+        <div class='figure__item'>
+          <pre><code>struct A {
+  int a;
+  int b;
+};
+
+struct X {
+  int i;
+  struct A s;
+  int j;
+};</code></pre>
+          <code> => </code>
+          <pre><code>struct X {
+  int i;
+  int a;
+  int b;
+  int j;
+};</code></pre>
+        </div>
+        <div class='figure__item'>
+          <div class='figure__sub'>
+            <div>
+              What free(x) does:
+              <ul>
+                <li>Deallocates the item at x</li>
+              </ul>
+            </div>
+          </div>
+          <div class='figure__sub'>
+            <div>
+              What free(x) does <em>not</em> do:
+              <ul>
+                <li>Changes the value of x</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class='figure__item figure--column'>
+          <div class='figure__sub'>
+            <div class='figure__title'>Before free:</div>
+            <div class='pointer'>
+              <div class='mem-block pointer__value'><code></code></div>
+              <div class='mem-block pointer__data'></div>
+            </div>
+          </div>
+          <div class='figure__sub'>
+            <div class='figure__title'>After free:</div>
+            <div class='pointer'>
+              <div class='mem-block pointer__value'></div>
+              <div class='mem-block pointer__data'></div>
+            </div>
+          </div>
+          <div class='figure__sub'>
+            <div class='figure__title'>After malloc:</div>
+            <div class='pointer'>
+              <div class='mem-block pointer__value'></div>
+              <div class='mem-block pointer__data'></div>
+            </div>
+          </div>
         </div>
       </figure>
     </aside>

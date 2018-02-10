@@ -1447,11 +1447,18 @@ blockquote {
 .figure {
   position: fixed;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   right: 0;
   width: 50vw;
   height: 100vh; }
+
+.figure__item {
+  position: absolute;
+  top: 50vh;
+  right: 25vw;
+  transform: translate(50%, -50%); }
 
 .figure--table {
   margin-top: 24px; }
@@ -1508,20 +1515,38 @@ blockquote {
 
 .figure {
   font-family: "Fira Code", monospace;
-  line-height: 2;
+  line-height: 1.8;
   color: #FFFFFF;
-  font-size: 20px; }
+  font-size: 22px; }
+
+.figure__sub {
+  margin-left: 24px; }
+  .figure__sub:first-child {
+    margin-left: 0; }
 
 .figure__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   opacity: 0;
-  pointer-events: none;
-  transform: translateY(-16px);
-  transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  pointer-events: none; }
+  .figure__item pre {
+    background: none;
+    border-radius: 0;
+    padding: 0; }
+
+.figure--column {
+  flex-direction: column;
+  align-items: flex-start; }
+  .figure--column .figure__sub {
+    margin-left: 0;
+    margin-bottom: 24px; }
+    .figure--column .figure__sub:last-child {
+      margin-bottom: 0; }
 
 .figure--active {
   opacity: 1;
-  pointer-events: all;
-  transform: translateY(0); }
+  pointer-events: all; }
 
 .caption {
   background: #3498DB;
@@ -1569,5 +1594,17 @@ blockquote {
   margin-left: 16px; }
   .fig__mem__block:first-child {
     margin-left: 0; }
+
+.pointer {
+  display: flex; }
+
+.mem-block {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  border: 1px solid #FFFFFF;
+  margin-right: 48px; }
+  .mem-block:last-child {
+    margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */

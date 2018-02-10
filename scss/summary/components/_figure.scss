@@ -4,22 +4,46 @@
 
 .figure {
   font-family: $font-mono;
-  line-height: 2;
+  line-height: 1.8;
   color: $white;
-  font-size: 20px;
+  font-size: 22px;
+}
+
+.figure__sub {
+  margin-left: 24px;
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .figure__item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-16px);
-  transition: all 0.25s $cubic-out;
+  pre {
+    background: none;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+.figure--column {
+  flex-direction: column;
+  align-items: flex-start;
+  .figure__sub {
+    margin-left: 0;
+    margin-bottom: 24px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .figure--active {
   opacity: 1;
   pointer-events: all;
-  transform: translateY(0);
 }
 
 .caption {
@@ -80,4 +104,23 @@
   &:first-child {
     margin-left: 0;
   }
+}
+
+.pointer {
+  display: flex;
+}
+
+.mem-block {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  border: 1px solid $white;
+  margin-right: 48px;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.pointer__value {
+  
 }
