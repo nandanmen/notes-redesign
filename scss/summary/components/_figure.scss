@@ -52,22 +52,43 @@
   @include box-shadow;
 }
 
-.figure--table {
+.fig__table {
   font-size: 20px;
   td, th {
     color: $white;
     padding: 16px;
-  }
-  th, td {
-    border-bottom: 1px solid $white;
     border-right: 1px solid $white;
+    border-left: 1px solid $white;
+    &:first-child {
+      border-left: none;
+    }
     &:last-child {
       border-right: none;
     }
   }
+  th {
+    border-bottom: 1px solid $white;
+  }
+}
+
+.table--finance {
+  td, th {
+    border: none;
+    border-bottom: 1px solid $white;
+    font-weight: 400;
+  }
   td {
     border-bottom: none;
   }
+}
+
+.end-note {
+  font-size: 0.8em;
+}
+
+.fig__list {
+  font-size: 18px;
+  line-height: 1.6em;
 }
 
 .table--clean {

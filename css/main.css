@@ -1433,6 +1433,13 @@ blockquote {
   .tree__delete:after {
     opacity: 0; }
 
+.table--stem td:first-child {
+  text-align: right;
+  padding-right: 16px; }
+.table--stem td:nth-child(2) {
+  text-align: left;
+  padding-left: 16px; }
+
 .summary {
   background: #fafafa;
   height: 100vh;
@@ -1553,18 +1560,33 @@ blockquote {
   border-radius: 16px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16); }
 
-.figure--table {
+.fig__table {
   font-size: 20px; }
-  .figure--table td, .figure--table th {
+  .fig__table td, .fig__table th {
     color: #FFFFFF;
-    padding: 16px; }
-  .figure--table th, .figure--table td {
-    border-bottom: 1px solid #FFFFFF;
-    border-right: 1px solid #FFFFFF; }
-    .figure--table th:last-child, .figure--table td:last-child {
+    padding: 16px;
+    border-right: 1px solid #FFFFFF;
+    border-left: 1px solid #FFFFFF; }
+    .fig__table td:first-child, .fig__table th:first-child {
+      border-left: none; }
+    .fig__table td:last-child, .fig__table th:last-child {
       border-right: none; }
-  .figure--table td {
-    border-bottom: none; }
+  .fig__table th {
+    border-bottom: 1px solid #FFFFFF; }
+
+.table--finance td, .table--finance th {
+  border: none;
+  border-bottom: 1px solid #FFFFFF;
+  font-weight: 400; }
+.table--finance td {
+  border-bottom: none; }
+
+.end-note {
+  font-size: 0.8em; }
+
+.fig__list {
+  font-size: 18px;
+  line-height: 1.6em; }
 
 .table--clean {
   margin-top: 130vh; }

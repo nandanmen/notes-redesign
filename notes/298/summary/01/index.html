@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Financial Statement Analysis</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Financial Statement Analysis</h1>
+      <h2 class='content__subtitle'>Strategies</h2>
+      <p>Firms can generally be categorized to one of two strategies &mdash; differentiator or low cost provider.</p>
+      <p><strong>Differentiators</strong> are generally luxury manufacturers. They sell a low quantity of goods with high prices.</p>
+      <p><strong>Low cost providers</strong> are sellers of cheaper goods. They have much higher sales volumes but each good has a lower profit margin.</p>
+      <p>Differentiating between them is simple. There is a general rule based on their financial ratios:</p>
+      <ul>
+        <li>Differentiator &mdash; high net profit margin, low asset turnover</li>
+        <li>Low cost provider &mdash; low net profit margin, high asset turnover</li>
+      </ul>
+      <p>Where asset turnover is defined as <code class='code--inline'>sales/assets</code> and net profit margin is defined as <code class='code--inline'>net income/sales</code>.</p>
+      <h2 class='content__subtitle'>Potential Equity Investments</h2>
+      <p>To choose potential investment options we have to look into the current financial status of the company. Essentially there are four measures:</p>
+      <ul>
+        <li><strong>Liquidity</strong> &mdash; ability for a company to pay off its short-term debts</li>
+        <li><strong>Efficiency</strong> &mdash; how well a company uses its assets/liabilities</li>
+        <li><strong>Profitability</strong> &mdash; the company's capacity to make a profit</li>
+        <li><strong>Solvency</strong> &mdash; the company's net income compared to its debts</li>
+      </ul>
+      <h2 class='content__subtitle'>Forecast Future Net Income</h2>
+      <p>Assuming we know the rate of growth and the correct ratios, calculating future net income is simple.</p>
+      <p>Say we are given the following information:</p>
+      <table class='table--stem'>
+        <tr>
+          <td>First-year sales</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>Annual sales growth</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>COGS (as % of sales)</td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td>Operating expenses<br>(as % of sales)</td>
+          <td>55%</td>
+        </tr>
+        <tr>
+          <td>Tax rate</td>
+          <td>30%</td>
+        </tr>
+      </table>
+      <p>If we want to calculate the net income for next year, we just calculate the growth of sales and calculate the rest (shown on right).</p>
+      <p>Often we are not explicitly given the growth rate, but we are given return on equity and retention rate. From there we can derive the growth rate as follows:</p>
+      <div class='math'>G = RoE * RR</div>
+      <h2 class='content__subtitle'>Forecast Future Cash Flow</h2>
+      <p>If we would like to know the future cash flow, we need to follow the steps shown on the right.</p>
+      <p>Let's try to predict the future cash flow from the previous example. We are given the following data:</p>
+      <table class='table--stem'>
+        <tr>
+          <td>First-year sales</td>
+          <td>$100</td>
+        </tr>
+        <tr>
+          <td>Annual sales growth</td>
+          <td>20%</td>
+        </tr>
+        <tr>
+          <td>Noncash working capital<br>(as % of sales)</td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>Annual investment in fixed capital<br>(as % of sales)</td>
+          <td>5%</td>
+        </tr>
+        <tr>
+          <td>Beginning noncash working capital</td>
+          <td>$75</td>
+        </tr>
+        <tr>
+          <td>Beginning cash</td>
+          <td>$10</td>
+        </tr>
+      </table>
+      <p>We know from the previous example that sales is <code class='code--inline'>$120</code> and net income is <code class='code--inline'>$12.6</code>. Thus we also know the following numbers:</p>
+      <ul>
+        <li>Noncash working capital &mdash; $84</li>
+        <li>Investment in fixed capital &mdash; $6</li>
+      </ul>
+      <p>Now we need to find the investment in working capital. We know that the required working capital is 70% of sales. Thus the previous working capital would be:</p>
+      <div class='math'>70% x 100$ = $70</div>
+      <p>Therefore the investment in working capital would be the new required working capital minus the previous working capital:</p>
+      <div class='math'>$84 - $70 = $14</div>
+      <p>Thus the change in cash would be:</p>
+      <div class='math'>$12.6 - $14 - $6 = -$7.4</div>
+      <p>Since beginning cash is $10, ending cash would be:</p>
+      <div class='math'>$10 - $7.4 = $2.6</div>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+        <div class='figure__item'></div>
+        <div class='figure__item'></div>
+        <div class='figure__item'>
+          <table class='fig__table table--finance'>
+            <tr>
+              <th></th>
+              <th>Yr 2</th>
+            </tr>
+            <tr>
+              <td>Sales</td>
+              <td>$120<br><span class='end-note'>$100 x (1 + 20%))</span></td>
+            </tr>
+            <tr>
+              <td>Pre-tax income</td>
+              <td>$18<br><span class='end-note'>$100 x (1 - (30% + 55%))</span></td>
+            </tr>
+            <tr>
+              <td>Net income</td>
+              <td>$12.6<br><span class='end-note'>$18 x (1 - 70%)</span></td>
+            </tr>
+          </table>
+        </div>
+        <div class='figure__item'>
+          <ol class='fig__list'>
+            <li>Find total sales</li>
+            <li>Calculate net income</li>
+            <li>Get change in cash by subtracting net income with all investments:
+              <ul>
+                <li>Investment in noncash working capital</li>
+                <li>Investment in fixed assets</li>
+              </ul>
+            </li>
+            <li>Subtract beginning cash with change in cash to get ending cash</li>
+          </ol>
+        </div>
+      </figure>
+    </aside>
+  </main>
+  <script src="../figure.js" type="text/javascript"></script>
+</body>
+</html>
