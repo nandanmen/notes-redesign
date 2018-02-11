@@ -6,7 +6,6 @@
 h1, h2, h3 {
     font-family: $font-head;
     line-height: 1em;
-    color: $black;
 }
 h1 {
     font-size: 40px;
@@ -48,7 +47,6 @@ h3 {
 
 p {
     font-family: $font-body;
-    color: $black;
     line-height: 1.618em;
 }
 
@@ -60,12 +58,11 @@ table, td, th {
     border-collapse: collapse;
     text-align: center;
     font-family: $font-mono;
-    color: $main;
 }
 td, th {
     padding: 8px;
-    border-right: 1px solid $main;
-    border-left: 1px solid $main;
+    border-right: 1px solid;
+    border-left: 1px solid;
     &:first-child {
         border-left: none;
     }
@@ -74,7 +71,7 @@ td, th {
     }
 }
 th {
-    border-bottom: 1px solid $main;
+    border-bottom: 1px solid;
 }
 
 a {
@@ -100,6 +97,8 @@ ul, ol {
 }
 
 button {
+    cursor: pointer;
+    color: inherit;
     border: none;
     &:focus {
         outline: 0;

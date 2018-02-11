@@ -1,0 +1,164 @@
+.problems {
+  font-size: 24px;
+  width: 100vw;
+  height: 100vh;
+  background: $secondary;
+  color: $white;
+}
+
+.solutions {
+  background: $main-bkg;
+  color: $black;
+  .problem__data {
+    color: $black;
+  }
+  .problem__show {
+    &:after {
+      background: $black;
+    }
+  }
+  .problem__nav {
+    &:before {
+      background: $black;
+    }
+    &:after {
+      background: $black;
+    }
+  }
+  .problem__curr {
+    border-right: 6px solid $black;
+  }
+  .problem__btn {
+    background: $black;
+  }
+}
+
+/* --- Header --- */
+
+.problem__header__class {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+.problem__header__desc {
+  font-family: $font-serif;
+  font-style: italic;
+  margin-left: 8px;
+}
+
+/* --- Body --- */
+
+.problem__info, .problem__solution {
+  font-family: $font-body;
+  font-weight: 400;
+  padding-right: 5vw;
+  > * {
+    margin-bottom: 1.2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.problem__solution {
+  font-size: 0.8em;
+  padding: 1vh 5vw;
+  opacity: 0;
+}
+
+.problem__question {
+  font-weight: 700;
+}
+
+.problem__data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10vw;
+  font-size: 0.8em;
+  color: $white;
+}
+
+/* --- Solution Button --- */
+
+.problem__show {
+  font-family: $font-head;
+  font-size: 0.8em;
+  background: none;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: $white;
+    transform: scaleX(0);
+    transition: all 0.25s $cubic-out;
+  }
+  &:hover {
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+/* --- Navigation --- */
+
+.problem__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  justify-self: start;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    height: 30%;
+    width: 1px;
+    background: $white;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    height: 30%;
+    width: 1px;
+    background: $white;
+  }
+}
+
+.problem__numbers {
+  display: flex;
+  font-family: $font-head;
+  font-size: 1.3em;
+  transform: rotateZ(90deg);
+  margin-left: -50px;
+}
+
+.problem__curr {
+  border-right: 6px solid $white;
+  padding-right: 1em;
+}
+
+.problem__total {
+  padding-left: 1em;
+}
+
+.problem__prev {
+  margin-bottom: 20vh;
+}
+
+.problem__next {
+  margin-top: 20vh;
+}
+
+.problem__btn {
+  width: 32px;
+  height: 32px;
+  background: $white;
+}

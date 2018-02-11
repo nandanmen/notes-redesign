@@ -1,0 +1,49 @@
+.problems {
+  display: grid;
+  grid-template-columns: 10vw 40vw 40vw 10vw;
+  grid-template-rows: 12vh 76vh 12vh;
+}
+
+.problem__header {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  align-self: end;
+}
+
+.problem {
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  grid-template-rows: 76vh;
+  grid-column: 2 / 3;
+  grid-row: 2;
+}
+
+.problem__info {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.problem__nav {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.problem__show {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: start;
+  align-self: start;
+}
+
+.problem__solution {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  max-height: 52vh;
+  overflow-y: scroll;
+}

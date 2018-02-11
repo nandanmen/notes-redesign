@@ -10,3 +10,37 @@
     }
   }
 }
+
+.table--white {
+  td, th {
+    color: $white;
+    border-right: 1px solid $white;
+    border-left: 1px solid $white;
+    &:first-child {
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  th {
+    border-bottom: 1px solid $white;
+  }
+}
+
+.table--black {
+  td, th {
+    color: $black;
+    border-right: 1px solid $black;
+    border-left: 1px solid $black;
+    &:first-child {
+      border-left: none;
+    }
+    &:last-child {
+      border-right: none;
+    }
+  }
+  th {
+    border-bottom: 1px solid $black;
+  }
+}

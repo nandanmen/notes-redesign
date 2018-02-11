@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,400i,600,700,800");
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700");
 @import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700");
 /* --- Colors --- */
@@ -49,8 +49,7 @@ body {
 */
 h1, h2, h3 {
   font-family: "Montserrat", sans-serif;
-  line-height: 1em;
-  color: #494949; }
+  line-height: 1em; }
 
 h1 {
   font-size: 40px; }
@@ -91,7 +90,6 @@ h3 {
 
 p {
   font-family: "Open Sans", sans-serif;
-  color: #494949;
   line-height: 1.618em; }
 
 table {
@@ -101,20 +99,19 @@ table {
 table, td, th {
   border-collapse: collapse;
   text-align: center;
-  font-family: "Fira Code", monospace;
-  color: #3498DB; }
+  font-family: "Fira Code", monospace; }
 
 td, th {
   padding: 8px;
-  border-right: 1px solid #3498DB;
-  border-left: 1px solid #3498DB; }
+  border-right: 1px solid;
+  border-left: 1px solid; }
   td:first-child, th:first-child {
     border-left: none; }
   td:last-child, th:last-child {
     border-right: none; }
 
 th {
-  border-bottom: 1px solid #3498DB; }
+  border-bottom: 1px solid; }
 
 a {
   text-decoration: none;
@@ -136,6 +133,8 @@ ul, ol {
   margin-left: 40px; }
 
 button {
+  cursor: pointer;
+  color: inherit;
   border: none; }
   button:focus {
     outline: 0; }
@@ -1440,6 +1439,28 @@ blockquote {
   text-align: left;
   padding-left: 16px; }
 
+.table--white td, .table--white th {
+  color: #FFFFFF;
+  border-right: 1px solid #FFFFFF;
+  border-left: 1px solid #FFFFFF; }
+  .table--white td:first-child, .table--white th:first-child {
+    border-left: none; }
+  .table--white td:last-child, .table--white th:last-child {
+    border-right: none; }
+.table--white th {
+  border-bottom: 1px solid #FFFFFF; }
+
+.table--black td, .table--black th {
+  color: #494949;
+  border-right: 1px solid #494949;
+  border-left: 1px solid #494949; }
+  .table--black td:first-child, .table--black th:first-child {
+    border-left: none; }
+  .table--black td:last-child, .table--black th:last-child {
+    border-right: none; }
+.table--black th {
+  border-bottom: 1px solid #494949; }
+
 .summary {
   background: #fafafa;
   height: 100vh;
@@ -1628,5 +1649,175 @@ blockquote {
   margin-right: 48px; }
   .mem-block:last-child {
     margin-right: 0; }
+
+.problems {
+  display: grid;
+  grid-template-columns: 10vw 40vw 40vw 10vw;
+  grid-template-rows: 12vh 76vh 12vh; }
+
+.problem__header {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: start;
+  align-self: end; }
+
+.problem {
+  display: grid;
+  grid-template-columns: 40vw 40vw;
+  grid-template-rows: 76vh;
+  grid-column: 2 / 3;
+  grid-row: 2; }
+
+.problem__info {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  max-height: 70vh;
+  overflow-y: scroll; }
+
+.problem__nav {
+  grid-column: 4;
+  grid-row: 2; }
+
+.problem__show {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: start;
+  align-self: start; }
+
+.problem__solution {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  max-height: 52vh;
+  overflow-y: scroll; }
+
+.problems {
+  font-size: 24px;
+  width: 100vw;
+  height: 100vh;
+  background: #2C3E50;
+  color: #FFFFFF; }
+
+.solutions {
+  background: #fafafa;
+  color: #494949; }
+  .solutions .problem__data {
+    color: #494949; }
+  .solutions .problem__show:after {
+    background: #494949; }
+  .solutions .problem__nav:before {
+    background: #494949; }
+  .solutions .problem__nav:after {
+    background: #494949; }
+  .solutions .problem__curr {
+    border-right: 6px solid #494949; }
+  .solutions .problem__btn {
+    background: #494949; }
+
+/* --- Header --- */
+.problem__header__class {
+  font-size: 1em;
+  font-weight: 400; }
+
+.problem__header__desc {
+  font-family: "Libre Baskerville", serif;
+  font-style: italic;
+  margin-left: 8px; }
+
+/* --- Body --- */
+.problem__info, .problem__solution {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  padding-right: 5vw; }
+  .problem__info > *, .problem__solution > * {
+    margin-bottom: 1.2em; }
+    .problem__info > *:last-child, .problem__solution > *:last-child {
+      margin-bottom: 0; }
+
+.problem__solution {
+  font-size: 0.8em;
+  padding: 1vh 5vw;
+  opacity: 0; }
+
+.problem__question {
+  font-weight: 700; }
+
+.problem__data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10vw;
+  font-size: 0.8em;
+  color: #FFFFFF; }
+
+/* --- Solution Button --- */
+.problem__show {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8em;
+  background: none;
+  position: relative; }
+  .problem__show:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 3px;
+    background: #FFFFFF;
+    transform: scaleX(0);
+    transition: all 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
+  .problem__show:hover:after {
+    transform: scaleX(1); }
+
+/* --- Navigation --- */
+.problem__nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  justify-self: start; }
+  .problem__nav:before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 0;
+    height: 30%;
+    width: 1px;
+    background: #FFFFFF; }
+  .problem__nav:after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+    height: 30%;
+    width: 1px;
+    background: #FFFFFF; }
+
+.problem__numbers {
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.3em;
+  transform: rotateZ(90deg);
+  margin-left: -50px; }
+
+.problem__curr {
+  border-right: 6px solid #FFFFFF;
+  padding-right: 1em; }
+
+.problem__total {
+  padding-left: 1em; }
+
+.problem__prev {
+  margin-bottom: 20vh; }
+
+.problem__next {
+  margin-top: 20vh; }
+
+.problem__btn {
+  width: 32px;
+  height: 32px;
+  background: #FFFFFF; }
 
 /*# sourceMappingURL=main.css.map */

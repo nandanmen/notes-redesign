@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Financial Statement Analysis</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='problems'>
+    <header class='problem__header'>
+      <h1 class='problem__header__class'>CM298<span class='problem__header__desc'>Introduction to Finance</span></h1>
+    </header>
+    <div class='problem'>
+      <article class='problem__info'>
+        <p>Given the table on the right, <span class='problem__question'>calculate the net income of the company in year 4.</span></p>
+      </article>
+      <aside class='problem__data'>
+        <table class='table--stem'>
+          <tr>
+            <td>First year sales</td>
+            <td>$200,000</td>
+          </tr>
+          <tr>
+            <td>Annual sales growth</td>
+            <td>30%</td>
+          </tr>
+          <tr>
+            <td>COGS (as % of sales)</td>
+            <td>30%</td>
+          </tr>
+          <tr>
+            <td>Operating expenses<br>(as % of sales)</td>
+            <td>45%</td>
+          </tr>
+          <tr>
+            <td>Tax rate</td>
+            <td>35%</td>
+          </tr>
+          <tr>
+            <td>Noncash working capital<br>(as % of sales)</td>
+            <td>60%</td>
+          </tr>
+          <tr>
+            <td>Annual investment in<br>fixed capital<br>(as % of sales)</td>
+            <td>8%</td>
+          </tr>
+          <tr>
+            <td>Beginning noncash<br>working capital</td>
+            <td>$140,000</td>
+          </tr>
+          <tr>
+            <td>Beginning cash</td>
+            <td>$15,000</td>
+          </tr>
+        </table>
+      </aside>
+      <article class='problem__solution'>
+        <p>First we have to find the total sales at year 4. Since growth is 30% every year, we can simply do the following to get final sales:</p>
+        <div class='math'>$200,000 * (1 + 30%)<sup>4 - 1</sup></div>
+        <p>This results in a fourth year sales value of:</p>
+        <div class='math'>$439,400</div>
+        <p>Subtracting all COGS and operating expenses we get the pre-tax income:</p>
+        <div class='math'>$439,400 x (1 - 30% - 45%) = $109,850</div>
+        <p>Finally multiply by 1 - tax rate to get net income:</p>
+        <div class='math'>$109,850 x (1 - 35%) = $71,402.5</div>
+      </article>
+    </div>
+    <nav class='problem__nav'>
+      <button class='problem__btn problem__prev'></button>
+      <nav class='problem__numbers'>
+        <div class='problem__curr'>01</div>
+        <div class='problem__total'>10</div>
+      </nav>
+      <button class='problem__btn problem__next'></button>
+    </nav>
+    <button class='problem__show'>Show Solution</button>
+  </main>
+  <script src="../problem.js" type="text/javascript"></script>
+</body>
+</html>
