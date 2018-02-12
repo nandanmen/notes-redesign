@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Time Value of Money</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Time Value of Money</h1>
+      <p>Whenever we predict a future cash flow, we have to <em>discount</em> that cash flow back to the present so that it is meaningful for comparisons.</p>
+      <p>The cash flow for a <strong>bond</strong> is interest, and the cash flow for a <strong>stock</strong> are dividends.</p>
+      <h2 class='content__subtitle'>Calculating Present Value</h2>
+      <p>The general formula for the present value of a sum of money is:</p>
+      <div class='math'>PV = FV / (1 + r)<sup>N</sup></div>
+      <p>Where:</p>
+      <ul>
+        <li>PV &mdash; present value</li>
+        <li>FV &mdash; future value</li>
+        <li>r &mdash; rate of return (depends on stock/bonds/etc)</li>
+        <li>N &mdash; compounding periods</li>
+      </ul>
+      <p>For example, let's say that a person leaves <code class='code--inline'>$10,000</code> invested for 5 years. At the end of the five years, the account is worth <code class='code--inline'>$17,000</code>.</p>
+      <p>What was the rate of return?</p>
+      <p>Essentially we need to solve for r in the previous equation. So we have:</p>
+      <ul>
+        <li>PV &mdash; $10,000</li>
+        <li>FV &mdash; $17,000</li>
+        <li>N &mdash; 5</li>
+      </ul>
+      <p>Therefore:</p>
+      <div class='math'>10,000 = 17,000 / (1 + r)<sup>5</sup><br>
+      1+r = (17,000/10,000)<sup>0.2</sup><br>
+      r = 11.2%</div>
+      <h2 class='content__subtitle'>Different Compounding Periods</h2>
+      <p>In the previous example compounding periods is equal to the number of years. This is the general assumption.</p>
+      <p>However it is possible for the rate to be compounded quarterly/monthly/daily as well. In this case, we have to <strong>appropriately divide</strong> the yearly rate by the compounding period.</p>
+      <p>For example, if an investment earns <code class='code--inline'>4% / year</code>, but it is compounded quarterly, then the rate that we use is <code class='code--inline'>4 / 4 = 1%</code>.</p>
+      <h2 class='content__subtitle'>Effective vs. Stated Rate</h2>
+      <p>The effective rate is the rate that takes into account compounding periods. The stated rate is simply a rate that is stated annually. Whenever the compounding period is less than annual, the effective rate is <strong>higher</strong> than the stated rate.</p>
+      <p>The formula is:</p>
+      <div class='math'>ER = (1 + SR/N)<sup>N</sup> - 1</div>
+      <p>Where:</p>
+      <ul>
+        <li>ER &mdash; effective rate</li>
+        <li>SR &mdash; standard rate</li>
+        <li>N &mdash; compounding periods per year</li>
+      </ul>
+      <p>For example, if an investment has a SR of 18% and is compounded quarterly, the effective rate is:</p>
+      <div class='math'>ER = (1 + (18%/4))<sup>4</sup> - 1</div>
+      <div class='math'>ER = 1.045<sup>4</sup> - 1 = 19.25%</div>
+      <h2 class='content__subtitle'>Ordinary Annuity & Annuity Due</h2>
+      <p><strong>Ordinary annuity</strong> refers to when a cash flow is added (or subtracted) at the <em>end</em> of each subperiod.</p>
+      <p><strong>Annuity due</strong> refers to when a cash flow is added at the <em>beginning</em> of each subperiod.</p>
+      <blockquote>
+        <p>When not specified, the problem refers to <strong>ordinary annuity</strong>.</p>
+      </blockquote>
+      <p>The formula for the FV of an ordinary annuity is:</p>
+      <div class='math'>FV = P(((1 + r)<sup>n</sup> - 1) / r)</div>
+      <p>Where:</p>
+      <ul>
+        <li>FV &mdash; future value</li>
+        <li>P &mdash; payments</li>
+        <li>r &mdash; rate</li>
+        <li>n &mdash; compounding periods</li>
+      </ul>
+      <p>For example, if a person adds $7,000 per year to an account for 10 years and he receives 6% per year on the money, what is the account worth at the end of the 10 years?</p>
+      <div class='math'>FV = 7,000(((1.06)<sup>10</sup> - 1) / 0.06) = $92,265</div>
+      <p>Sometimes we are given a final value and we are asked for the minimum payments to be made. In this case we simply alter the formula to become:</p>
+      <div class='math'>P = FV/(((1 + r)<sup>n</sup> - 1) / r)</div>
+      <p>Say with a rate of 6%, we want $112,000 in our account after 10 years. What should our payments be?</p>
+      <div class='math'>P = 112,000/((1.06<sup>10</sup> - 1) / 0.06) = $8,497</div>
+      <h2 class='content__subtitle'>Perpetuity</h2>
+      <p>A perpetuity is a type of payment that is never ending. One example of this is <strong>preferred stock</strong>.</p>
+      <p>Since it is never ending, we can only talk about its present value. The formula for that is simply:</p>
+      <div class='math'>PV = P/r</div>
+      <p>Where:</p>
+      <ul>
+        <li>PV &mdash; present value</li>
+        <li>P &mdash; payments</li>
+        <li>r &mdash; rate of return</li>
+      </ul>
+      <p>For example, if a preferred stock of ABC corporation pays $10 per share annual dividend with a rate of return of 5%, the value of the stock is:</p>
+      <div class='math'>PV = $10 / 5% = $200</div>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+
+      </figure>
+    </aside>
+  </main>
+  <script src="../figure.js" type="text/javascript"></script>
+</body>
+</html>
