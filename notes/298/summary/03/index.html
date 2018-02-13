@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bonds</title>
+  <link href="../../../../css/main.css" type="text/css" rel="stylesheet">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+</head>
+<body>
+  <main class='summary'>
+    <article class='summary__content'>
+      <h1 class='content__title'>Bonds</h1>
+      <p>A bond is essentially a contract between the issuer and the holder. The issuer is the person <em>borrowing</em> money, and the holder is the person <em>lending</em> the money.</p>
+      <h2 class='content__subtitle'>Covenants</h2>
+      <p>Bond covenants are "rules" that determine what the issuer should and should not do. There are two types &mdash; affirmative and negative.</p>
+      <p><strong>Affirmative</strong> covenants are <strong>required</strong> actions by the bond issuer. Examples of this includes:</p>
+      <ul>
+        <li>Pay interest, taxes, and other claims on time</li>
+        <li>Keep assets in good condition</li>
+        <li>File periodic reports with the trustee</li>
+      </ul>
+      <p><strong>Negative</strong> covenants are <strong>prohibited</strong> actions by the bond issuer. This includes:</p>
+      <ul>
+        <li>Use of assets as collateral</li>
+        <li>Restrictions on paying dividends and/or buying back stock</li>
+      </ul>
+      <h2 class='content__subtitle'>Features of Fixed-Income Securities</h2>
+      <p>The duration of the bond determines the type of bond. There are four types:</p>
+      <ul>
+        <li>Money market &mdash; 1 year or less</li>
+        <li>Short term &mdash; 1 - 5 years</li>
+        <li>Intermediate term &mdash; 5 - 12 years</li>
+        <li>Long term &mdash; 12+ years</li>
+      </ul>
+      <p>The <strong>par value</strong> is the amount of principal to be repaid. Bond <em>prices</em> are generally quoted as a % of par value.</p>
+      <p>The interest of the bond is known as the <strong>coupon</strong> interest. This interest can either be paid semiannually, monthly, or annually. Examples of each include:</p>
+      <ul>
+        <li>Semiannual &mdash; US treasury/government bonds</li>
+        <li>Monthly &mdash; Mortgage backed securities</li>
+        <li>Annual &mdash; Eurodollar</li>
+      </ul>
+      <h2 class='content__subtitle'>The Price of a Bond</h2>
+      <p>The price of a bond is the present value of all future cash flows. The future cash flow of a bond is its coupon interest.</p>
+      <p>So the general formula is:</p>
+      <div class='math'>PV = INT/(1+r)<sup>1</sup> + ... + INT/(1+r)<sup>n</sup> + P/(1+r)<sup>n</sup></div>
+      <p>This is assuming the interest is paid annually. Otherwise, you divide <em>both</em> payments and the rate.</p>
+      <p>For example, a 2-year, 5% corporate bond has a 6% yield. What is the price of this bond quoted as a percentage of par?</p>
+      <p>First, the return of the bond is 6% and the interest payment is 5% of $1,000, which is $50.</p>
+      <p>Now we assume that the bond is paid semiannually, therefore:</p>
+      <div class='math'>PV = 25((1 - (1 + 0.03)<sup>-20</sup>) / 0.03) + 1000/(1.03)<sup>20</sup> = $925.61</div>
+      <h3>Zero-Coupon Bonds</h3>
+      <p>Zero coupon bonds are bonds that pay no interest. Thus the price of them is essentially just the present value of par (however it still matters whether it is semi annual, monthly, or annual).</p>
+      <p>An investor is considering purchasing a 3-year, zero-coupon bond that yields 8%. What should the investor expect to pay for the bond?</p>
+      <div class='math'>PV = 1000 / (1.04)<sup>6</sup> = $790.31</div>
+      <h2 class='content__subtitle'>Spot Rates</h2>
+      <p>We can look at a coupon bond as a "portfolio" of zero-coupon bonds with different rates. It would make sense for the zero-coupon bonds to have different rates as they are farther ahead in the future, as this brings on more risk.</p>
+      <p>The spot rates of a bond are the rates that refer to these zero-coupon bonds. This rate is determined by the time to maturity of the bond.</p>
+      <p>It is important to note that the sum of these zero-coupon bonds <strong>should</strong> equal the sum of the coupon bond. If they don't, then:</p>
+      <ul>
+        <li>If the zero-coupon bonds &gt; coupon bond, buy more zero-coupon bonds and sell them as one bond.</li>
+        <li>Otherwise, buy the bond and sell the "parts" separately (because the pieces are worth more than the whole).</li>
+      </ul>
+    </article>
+    <aside class='summary__figure'>
+      <figure class='figure'>
+
+      </figure>
+    </aside>
+  </main>
+  <script src="../figure.js" type="text/javascript"></script>
+</body>
+</html>
