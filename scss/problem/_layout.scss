@@ -39,11 +39,8 @@
   align-self: start;
 }
 
-.problem__solution {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
-  justify-self: center;
-  max-height: 52vh;
-  overflow-y: scroll;
+.solution__container {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  height: 100vh;
 }

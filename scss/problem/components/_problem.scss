@@ -4,36 +4,19 @@
   height: 100vh;
   background: $secondary;
   color: $white;
-}
-
-.solutions {
-  background: $main-bkg;
-  color: $black;
-  .problem__data {
-    color: $black;
-  }
-  .problem__show {
-    &:after {
-      background: $black;
-    }
-  }
-  .problem__nav {
-    &:before {
-      background: $black;
-    }
-    &:after {
-      background: $black;
-    }
-  }
-  .problem__curr {
-    border-right: 6px solid $black;
-  }
-  .problem__btn {
-    background: $black;
-  }
+  overflow-y: hidden;
+  z-index: 0;
 }
 
 /* --- Header --- */
+
+.problem__header {
+  z-index: 20;
+}
+
+.problem__header--act {
+  color: $black;
+}
 
 .problem__header__class {
   font-size: 1em;
@@ -48,7 +31,7 @@
 
 /* --- Body --- */
 
-.problem__info, .problem__solution {
+.problem__info {
   font-family: $font-body;
   font-weight: 400;
   padding-right: 5vw;
@@ -60,10 +43,28 @@
   }
 }
 
-.problem__solution {
-  font-size: 0.8em;
-  padding: 1vh 5vw;
-  opacity: 0;
+.solution__container {
+  background: $main-bkg;
+  color: $black;
+  display: flex;
+  align-items: center;
+  font-size: 0.7em;
+  padding: 0 10vw;
+  overflow-y: scroll;
+  transform: translateY(100vh);
+  transition: all 0.5s $cubic-in-out;
+  z-index: 10;
+}
+
+.solution {
+  max-height: 60vh;
+  overflow-y: scroll;
+  > * {
+    margin-bottom: 1.2em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .problem__question {
@@ -77,6 +78,7 @@
   padding-right: 10vw;
   font-size: 0.8em;
   color: $white;
+  transition: all 0.5s $cubic-out;
 }
 
 /* --- Solution Button --- */
@@ -86,6 +88,7 @@
   font-size: 0.8em;
   background: none;
   position: relative;
+  z-index: 20;
   &:after {
     content: '';
     position: absolute;
@@ -101,6 +104,13 @@
     &:after {
       transform: scaleX(1);
     }
+  }
+}
+
+.problem__hide {
+  color: $black;
+  &:after {
+    background: $black;
   }
 }
 
