@@ -1,23 +1,22 @@
 .content {
-  font-size: 16px;
   line-height: 1.618;
   padding-bottom: 56px;
   opacity: 0;
   transform: translateY(-16px);
   > * {
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
     &:last-child {
       margin-bottom: 0;
     }
   }
   @include respond-to ($breakpoint-sm) {
-    font-size: 18px;
+    font-size: 1.125em;
   }
   @include respond-to($breakpoint-xl) {
-    font-size: 22px;
+    font-size: 1.375em;
   }
   @include respond-to($bp-4k) {
-    font-size: 26px;
+    font-size: 1.625em;
     > * {
       margin-bottom: 32px;
     }
@@ -27,7 +26,7 @@
 
 .note__subtitle {
   position: relative;
-  margin-top: 20px;
+  margin-top: 1.25em;
   &:before {
     content: '';
     background: $main;

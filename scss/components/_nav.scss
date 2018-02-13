@@ -171,11 +171,15 @@
 }
 
 .nav__sublist {
+    display: none;
     list-style: none;
-    display: flex;
     opacity: 0;
     transform: translateX(-16px);
-    animation: show-right 0.5s $cubic-in-out 0.25s forwards;
+    @include respond-to($breakpoint-lg) {
+        display: flex;
+        pointer-events: all;
+        animation: show-right 0.5s $cubic-in-out 0.25s forwards;
+    }
 }
 
 .sublist__item {

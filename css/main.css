@@ -80,7 +80,7 @@ h2 {
 
 h3 {
   font-family: "Open Sans", sans-serif;
-  font-size: 16px; }
+  font-size: 1em; }
   @media only screen and (min-width: 768px) {
     h3 {
       font-size: 24px; } }
@@ -788,11 +788,15 @@ blockquote {
     top: 26px; }
 
 .nav__sublist {
+  display: none;
   list-style: none;
-  display: flex;
   opacity: 0;
-  transform: translateX(-16px);
-  animation: show-right 0.5s cubic-bezier(0.85, 0.01, 0.36, 1) 0.25s forwards; }
+  transform: translateX(-16px); }
+  @media only screen and (min-width: 1280px) {
+    .nav__sublist {
+      display: flex;
+      pointer-events: all;
+      animation: show-right 0.5s cubic-bezier(0.85, 0.01, 0.36, 1) 0.25s forwards; } }
 
 .sublist__item {
   cursor: pointer;
@@ -985,31 +989,30 @@ blockquote {
   100% {
     color: #494949; } }
 .content {
-  font-size: 16px;
   line-height: 1.618;
   padding-bottom: 56px;
   opacity: 0;
   transform: translateY(-16px);
   animation: show-down 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0.6s forwards; }
   .content > * {
-    margin-bottom: 20px; }
+    margin-bottom: 1.25em; }
     .content > *:last-child {
       margin-bottom: 0; }
   @media only screen and (min-width: 768px) {
     .content {
-      font-size: 18px; } }
+      font-size: 1.125em; } }
   @media only screen and (min-width: 1800px) {
     .content {
-      font-size: 22px; } }
+      font-size: 1.375em; } }
   @media only screen and (min-width: 2500px) {
     .content {
-      font-size: 26px; }
+      font-size: 1.625em; }
       .content > * {
         margin-bottom: 32px; } }
 
 .note__subtitle {
   position: relative;
-  margin-top: 20px; }
+  margin-top: 1.25em; }
   .note__subtitle:before {
     content: '';
     background: #3498DB;
@@ -1726,6 +1729,18 @@ blockquote {
     .problem__info > *:last-child {
       margin-bottom: 0; }
 
+.problem__question {
+  font-weight: 700; }
+
+.problem__data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10vw;
+  font-size: 0.8em;
+  color: #FFFFFF;
+  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
+
 .solution__container {
   background: #fafafa;
   color: #494949;
@@ -1745,18 +1760,6 @@ blockquote {
     margin-bottom: 1.2em; }
     .solution > *:last-child {
       margin-bottom: 0; }
-
-.problem__question {
-  font-weight: 700; }
-
-.problem__data {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-right: 10vw;
-  font-size: 0.8em;
-  color: #FFFFFF;
-  transition: all 0.5s cubic-bezier(0.22, 0.61, 0.36, 1); }
 
 /* --- Solution Button --- */
 .problem__show {
@@ -1830,6 +1833,9 @@ blockquote {
 .problem__btn {
   width: 32px;
   height: 32px;
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  z-index: 10; }
+  .problem__btn:hover {
+    background: #3498DB; }
 
 /*# sourceMappingURL=main.css.map */
