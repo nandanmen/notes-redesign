@@ -1,34 +1,14 @@
-.landing {
+.home {
+  background: $secondary;
+  color: $white;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  background: #fafafa;
 }
 
-.btn--nav {
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.btn--next {
-  top: 6vh;
-  @include respond-to($breakpoint-lg) {
-    top: 50%;
-    transform: translateY(-50%);
-    right: 20vw;
-    left: auto;
-  }
-}
-
-.btn--prev {
-  bottom: 6vh;
-  @include respond-to($breakpoint-lg) {
-    top: 50%;
-    transform: translateY(-50%);
-    left: 20vw;
-  }
+.cards {
+  margin: 20vh 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  max-width: 70vw;
 }
