@@ -25,13 +25,15 @@ class Card {
 }
 
 (function main() {
+  const container = document.querySelector(".cards");
+
   const card210 = new Card("CPSC", 210, "Software Construction");
   const card213 = new Card("CPSC", 213, "Introduction to Computer Systems");
   const card221 = new Card("CPSC", 221, "Beginner Algorithms and Data Structures");
   const card298 = new Card("COMM", 298, "Introduction to Finance");
   const card291 = new Card("COMM", 291, "Introduction to Business Statistics");
-  const card310 = new Card("COMM", 310, "Introduction to Software Engineering");
-  const container = document.querySelector(".cards");
+  const card310 = new Card("CPSC", 310, "Introduction to Software Engineering");
+
   card210.render(container);
   card213.render(container);
   card221.render(container);
