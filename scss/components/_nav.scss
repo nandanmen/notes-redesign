@@ -31,8 +31,6 @@
     transform: scaleX(0);
     animation: grow-vert 0.8s $cubic-in-out forwards;
     @include respond-to($breakpoint-lg) {
-        align-items: flex-end;
-        border-left: none;
         border-right: 1px solid $dgrey;
     }
 }

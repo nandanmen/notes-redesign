@@ -1,0 +1,23 @@
+{
+  "name": "notes-redesign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "card.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narendrasss/notes-redesign.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/narendrasss/notes-redesign/issues"
+  },
+  "homepage": "https://github.com/narendrasss/notes-redesign#readme",
+  "dependencies": {
+    "node-sass": "^4.9.3"
+  }
+}
